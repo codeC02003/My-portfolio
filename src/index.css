@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Abolition";
+  src: url("/fonts/AbolitionTest-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lil Grotesk";
+  src: url("/fonts/LilGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lil Grotesk";
+  src: url("/fonts/LilGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lil Grotesk";
+  src: url("/fonts/LilGrotesk-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lil Grotesk";
+  src: url("/fonts/LilGrotesk-Heavy.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tailwind directives after font faces */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset body */
+body {
+  margin: 0;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Fixed background layer behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;                /* stays behind content */
+  pointer-events: none;
+  background: radial-gradient(1200px 800px at 20% 20%, #052024 0%, transparent 90%),
+              radial-gradient(1200px 800px at 80% 30%, #041a1f 0%, transparent 90%),
+              radial-gradient(1000px 700px at 50% 80%, #031216 0%, transparent 90%),
+              linear-gradient(180deg, #020a0f 0%, #000000 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* If you still want a bit of “frosted” look over the bg, blur the bg layer itself: */
+  filter: blur(0px);         /* keep 0 or small value; do NOT use backdrop-filter */
+}
+
+/* Scrollbar styling for Chrome, Edge, Safari */
+/* 🌌 Base Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000; /* dark background */
+  border-radius: 10px;
+}
+
+/* ✨ Glowing thumb with animated aura */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ffff, #00ff99);
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ff99, 0 0 40px #00ffff;
+  animation: pulseGlow 2s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00ffcc, #00ffff);
+  box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffcc;
+}
+
+/* 🌈 Glowing Animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ff99, 0 0 40px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 25px #00ffff, 0 0 50px #00ff99, 0 0 70px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ff99, 0 0 40px #00ffff;
+  }
+}
+
+/* 🌀 Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🦊 Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00ffff #000000;
+}
+
