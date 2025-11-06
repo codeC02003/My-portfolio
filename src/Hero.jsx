@@ -90,16 +90,15 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* === Right Side: Tesseract === */}
+      
+     {/* === Right-side Tesseract (Hidden on Mobile) === */}
       <div
-        className="absolute right-12 top-1/2 -translate-y-1/2 
+        className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 
                   w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] 
-                  flex items-center justify-center pointer-events-none"
+                  items-center justify-center pointer-events-none"
       >
         <Tesseract />
       </div>
-
-
     </section>
   );
 }

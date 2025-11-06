@@ -26,16 +26,17 @@ function AnimatedCube() {
   }, []);
 
   useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
-    if (materialRef.current) materialRef.current.uTime = t;
+  const t = clock.getElapsedTime();
+  if (!cubeRef.current || !materialRef.current) return;
 
-    if (cubeRef.current) {
-      cubeRef.current.rotation.x +=
-        (targetRotation.current.x - cubeRef.current.rotation.x) * 0.08;
-      cubeRef.current.rotation.y +=
-        (targetRotation.current.y - cubeRef.current.rotation.y) * 0.08;
-    }
-  });
+  const rect = cubeRef.current?.parent?.getBoundingClientRect?.();
+  if (rect && (rect.bottom < 0 || rect.top > window.innerHeight)) return; // stop rendering offscreen
+
+  materialRef.current.uTime = t;
+  cubeRef.current.rotation.x += (targetRotation.current.x - cubeRef.current.rotation.x) * 0.08;
+  cubeRef.current.rotation.y += (targetRotation.current.y - cubeRef.current.rotation.y) * 0.08;
+});
+
 
   return (
     <mesh ref={cubeRef}>
@@ -78,8 +79,8 @@ export default function Tesseract() {
           <AnimatedCube />
           <EffectComposer multisampling={0}>
             <Bloom
-              intensity={0.35}
-              luminanceThreshold={0.7}
+              intensity={0.15}
+              luminanceThreshold={0.8}
               luminanceSmoothing={0.25}
               mipmapBlur
             />
