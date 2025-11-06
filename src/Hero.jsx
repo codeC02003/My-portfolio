@@ -1,20 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaFileAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import Tesseract from "./Tesseract";
 
 export default function Hero() {
   return (
     <section
   id="hero"
-  className="relative flex items-center justify-between px-10 lg:px-24 min-h-[90vh] mt-4 overflow-hidden"
+  className="relative flex justify-center items-center px-10 lg:px-24 min-h-[90vh] mt-4 overflow-hidden"
 >
-  {/* === LEFT SIDE GLASS BOX === */}
+
   <motion.div
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.9, ease: 'easeOut' }}
-    className="relative z-10 w-full lg:w-3/4 max-w-4xl rounded-3xl p-10 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+    className="relative z-10 w-full max-w-4xl rounded-3xl p-8 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
            hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] 
            transition-all duration-300"
   >
@@ -89,16 +88,6 @@ export default function Hero() {
           ))}
         </div>
       </motion.div>
-
-      
-     {/* === Right-side Tesseract (Hidden on Mobile) === */}
-      <div
-        className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 
-                  w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] 
-                  items-center justify-center pointer-events-none"
-      >
-        <Tesseract />
-      </div>
     </section>
   );
 }
