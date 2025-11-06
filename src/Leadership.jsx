@@ -29,15 +29,14 @@ export default function Leadership() {
         Leadership & Teamwork
       </h2></DisintegrateOnScroll>
       <DisintegrateOnScroll>
-      <div className="max-w-5xl mx-auto flex flex-col gap-10 font-grotesk text-gray-300">
+      <div className="max-w-5xl mx-auto flex flex-col gap-10 font-grotesk text-gray-300 ">
         {experiences.map((exp, i) => (
           <div
             key={i}
-            className="group bg-[rgba(0,255,255,0.05)] backdrop-blur-md border border-[rgba(0,255,255,0.2)] rounded-2xl p-8
-                       transition-all duration-500 ease-out transform hover:border-[rgba(0,255,255,0.7)]
-                       hover:shadow-[0_0_35px_rgba(0,255,255,0.4)] hover:bg-[rgba(0,255,255,0.08)]"
+            className="group bg-[rgba(0,255,255,0.05)] rounded-2xl p-8
+                       transition-all duration-500 ease-out transform border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]"
           >
-            <h3 className="text-cyan-400 text-2xl font-semibold mb-3 drop-shadow-[0_0_10px_rgba(0,255,255,0.6)] group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.9)] transition-all">
+            <h3 className="text-cyan-400 text-2xl font-semibold mb-3">
               {exp.title}
             </h3>
             <p className="text-gray-300 leading-relaxed text-[1rem]">

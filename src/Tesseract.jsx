@@ -1,32 +1,45 @@
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, shaderMaterial } from "@react-three/drei";
+import React, { useRef, Suspense, useEffect } from "react";
+import { Canvas, useFrame, extend } from "@react-three/fiber";
+import { shaderMaterial } from "@react-three/drei";
 import * as THREE from "three";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import energyVertex from "./shaders/energyVertex.glsl";
 import energyFragment from "./shaders/energyFragment.glsl";
-import { extend } from "@react-three/fiber";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
-const EnergyMaterial = shaderMaterial(
-  { uTime: 0 },
-  energyVertex,
-  energyFragment
-);
+// Custom material
+const EnergyMaterial = shaderMaterial({ uTime: 0 }, energyVertex, energyFragment);
 extend({ EnergyMaterial });
 
 function AnimatedCube() {
   const cubeRef = useRef();
   const materialRef = useRef();
+  const targetRotation = useRef(new THREE.Vector2(0, 0));
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = -(e.clientY / window.innerHeight) * 2 + 1;
+      targetRotation.current.set(y * 0.6, x * 0.6);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   useFrame(({ clock }) => {
-    materialRef.current.uTime = clock.getElapsedTime();
-    cubeRef.current.rotation.x = clock.getElapsedTime() * 0.3;
-    cubeRef.current.rotation.y = clock.getElapsedTime() * 0.5;
+    const t = clock.getElapsedTime();
+    if (materialRef.current) materialRef.current.uTime = t;
+
+    if (cubeRef.current) {
+      cubeRef.current.rotation.x +=
+        (targetRotation.current.x - cubeRef.current.rotation.x) * 0.08;
+      cubeRef.current.rotation.y +=
+        (targetRotation.current.y - cubeRef.current.rotation.y) * 0.08;
+    }
   });
 
   return (
-    <mesh ref={cubeRef} position={[0, 0, 0]}>
-      <boxGeometry args={[2, 2, 2]} />
+    <mesh ref={cubeRef}>
+      <boxGeometry args={[3, 3, 3]} />
       <energyMaterial ref={materialRef} transparent side={THREE.DoubleSide} />
     </mesh>
   );
@@ -37,39 +50,41 @@ export default function Tesseract() {
     <div
       className="relative mx-auto flex items-center justify-center"
       style={{
-        width: "300px",   // smaller visible region
+        width: "300px",
         height: "300px",
-        overflow: "hidden", // hides any background beyond cube
-        borderRadius: "50%", // optional, makes it circular crop
         background: "transparent",
       }}
     >
       <Canvas
         camera={{ position: [3, 3, 3], fov: 60 }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{
+          alpha: true,
+          antialias: true,
+          powerPreference: "high-performance",
+        }}
         onCreated={({ gl }) => {
-          gl.setClearColor(0x000000, 0); // transparent render
+          gl.setClearColor(0x000000, 0);
         }}
         style={{
-          background: "transparent",
           width: "100%",
           height: "100%",
+          background: "transparent",
+          pointerEvents: "none",
         }}
       >
-        <EffectComposer>
-          <Bloom
-            intensity={2.5}
-            luminanceThreshold={0.1}
-            luminanceSmoothing={1.2}
-          />
-        </EffectComposer>
-
-        <ambientLight intensity={0.3} />
-        <pointLight position={[5, 5, 5]} intensity={3} color="#00ffff" />
-
-        <AnimatedCube />
-
-        <OrbitControls enableZoom={false} />
+        <Suspense fallback={null}>
+          <ambientLight intensity={0.6} />
+          <pointLight position={[4, 4, 4]} intensity={1.1} />
+          <AnimatedCube />
+          <EffectComposer multisampling={0}>
+            <Bloom
+              intensity={0.35}
+              luminanceThreshold={0.7}
+              luminanceSmoothing={0.25}
+              mipmapBlur
+            />
+          </EffectComposer>
+        </Suspense>
       </Canvas>
     </div>
   );

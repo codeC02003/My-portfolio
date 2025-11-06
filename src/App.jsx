@@ -6,21 +6,25 @@ import Skills from "./Skills";
 import SelectedWork from "./SelectedWork";
 import Leadership from "./Leadership";
 import Contact from "./Contact";
+import Education from "./Education";
 
 export default function App() {
   return (
     <div className="relative text-white">
       <NavbarPortal />
-
-      <main className="pt-16 space-y-1">
+      <div id="galaxy-bg">
+  <div className="stars"></div>
+  <div className="stars2"></div>
+  <div className="stars3"></div>
+</div>
+      <main className="pt-16 space-y-7">
         <section id="home"><Hero /></section>
-
-        {/* Add className="disperse-item" to any container that should disperse */}
-        <section id="contact" className="scroll-mt-10 disperse-item"><Contact /></section>
-        <section id="about" className="disperse-item"><About /></section>
-        <section id="skills" className="scroll-mt-16 disperse-item"><Skills /></section>
-        <section id="work" className="scroll-mt-16 disperse-item"><SelectedWork /></section>
-        <section id="leadership" className="disperse-item"><Leadership /></section>
+        <section id="about" className="scroll-mt-16"><About /></section>
+        <section id="Education" className="scroll-mt-16"><Education /></section>
+        <section id="skills" className="scroll-mt-16"><Skills /></section>
+        <section id="work" className="scroll-mt-16"><SelectedWork /></section>
+        <section id="leadership"><Leadership /></section>
+        <section id="contact"><Contact /></section>
       </main>
     </div>
   );

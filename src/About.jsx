@@ -5,50 +5,73 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-24"
-    ><DisintegrateOnScroll>
-      <h2 className="text-5xl font-abolition mb-6 bg-clip-text">
-        About Me
-      </h2>
-      </DisintegrateOnScroll>
-      <DisintegrateOnScroll>
-      <p className="max-w-4xl text-gray-300 text-lg leading-relaxed font-grotesk">
-        I’m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, an innovative and
-        adaptable Computer Science student passionate about building intelligent, human-centered
-        systems. With a strong foundation in{" "}
-        <span className="text-cyan-400 font-semibold">
-          software development, data structures, algorithms, and AI
-        </span>
-        , I love solving real-world problems that combine logic with creativity.
-      </p>
+      className="md:flex-row px-10 lg:px-24 py-24 gap-12"
+    >
+      {/* LEFT CONTENT */}
+      <div className="md:w-3/5 min-h-screen flex flex-col space-y-8 font-grotesk text-gray-300 text-lg leading-relaxed flex-col"> 
+        {/* === 1. Short Intro === */}
+          <h2 className="text-5xl font-abolition mb-8 bg-clip-text text-cyan-400">
+  <DisintegrateOnScroll>
+    <span className="inline-block w-fit leading-none">About Me</span>
+  </DisintegrateOnScroll>
+</h2>
 
-      <p className="max-w-4xl text-gray-300 text-lg leading-relaxed font-grotesk mt-6">
-        I’ve led interdisciplinary projects like a{" "}
-        <span className="text-cyan-400 font-semibold">
-          Gait Analysis System using IMU sensors and Machine Learning
-        </span>
-        , achieving 92% accuracy in motion detection, and developed platforms like{" "}
-        <span className="text-cyan-400 font-semibold">WeConnect</span>, enabling NGOs to collaborate
-        globally on impactful initiatives. These experiences have strengthened my technical
-        expertise and leadership skills.
-      </p>
+        <DisintegrateOnScroll>
+          <p>
+            I’m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, a Computer Science graduate student 
+            at the University of Arizona, focused on building <span className="text-cyan-400 font-semibold">
+            intelligent, scalable, and human-centered systems</span>.  
+            I love designing technologies that blend precision with creativity, from 
+            low-level logic to user-first interfaces.
+          </p>
+        </DisintegrateOnScroll>
 
-      <p className="max-w-4xl text-gray-300 text-lg leading-relaxed font-grotesk mt-6">
-        Skilled in <span className="text-cyan-400 font-semibold">Python, C++, JavaScript</span>,
-        and frameworks like <span className="text-cyan-400 font-semibold">React and Node.js</span>,
-        I also explore <span className="text-cyan-400 font-semibold">cloud computing, UI/UX design</span>,
-        and embedded systems. My approach blends analytical thinking with visual design, reflecting my
-        background as both a developer and creative designer.
-      </p>
+        {/* === 2. Technical Identity === */}
+        <DisintegrateOnScroll>
+          <p>
+            My technical work revolves around <span className="text-cyan-400 font-semibold">
+            Artificial Intelligence, Machine Learning, and Software Development</span>.  
+            I’ve engineered solutions in <span className="text-cyan-400 font-semibold">Python, C++, and JavaScript</span> 
+            using frameworks like <span className="text-cyan-400 font-semibold">React, Node.js, and TensorFlow</span>.  
+            I enjoy working on projects that merge <span className="text-cyan-400 font-semibold">
+            data, design, and distributed systems</span> to solve real-world challenges.
+          </p>
+        </DisintegrateOnScroll>
 
-      <p className="max-w-4xl text-gray-300 text-lg leading-relaxed font-grotesk mt-6">
-        Beyond academics, I’ve been part of{" "}
-        <span className="text-cyan-400 font-semibold">KJSCE Insignia</span> and{" "}
-        <span className="text-cyan-400 font-semibold">Codecell</span>, where I led creative teams
-        and managed event design, merging art with technology. I thrive in collaborative spaces
-        that challenge me to innovate, learn, and lead.
-      </p>
-      </DisintegrateOnScroll>
+        {/* === 3. Approach / Philosophy === */}
+        <DisintegrateOnScroll>
+          <p>
+            My development philosophy centers on <span className="text-cyan-400 font-semibold">
+            clean architecture, iterative improvement, and collaboration</span>.  
+            I believe the best systems are those that balance <span className="text-cyan-400 font-semibold">
+            performance, clarity, and adaptability</span>, whether that means optimizing algorithms or 
+            simplifying complex workflows.  
+            I value deep work, continuous learning, and the art of elegant problem-solving.
+          </p>
+        </DisintegrateOnScroll>
+
+        {/* === 4. Personal Touch === */}
+        <DisintegrateOnScroll>
+          <p>
+            Outside of code, I’m driven by <span className="text-cyan-400 font-semibold">
+            design, innovation, and curiosity</span>.  
+            I love exploring UI/UX, creating digital art, and understanding how human behavior 
+            shapes technology.  
+            When not in front of a screen, you’ll find me sketching, tinkering with hardware, 
+            or chasing new learning paths.
+          </p>
+        </DisintegrateOnScroll>
+
+        {/* === 5. Call to Action === */}
+        <DisintegrateOnScroll>
+          <p>
+            I’m currently open to <span className="text-cyan-400 font-semibold">
+            research collaborations, AI-driven internships, or software development roles</span> 
+            that challenge me to grow and build impactful systems.  
+            Feel free to explore my projects and connect, I’d love to collaborate on something meaningful.
+          </p>
+        </DisintegrateOnScroll>
+      </div>
     </section>
   );
 }

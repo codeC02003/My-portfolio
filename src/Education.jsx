@@ -1,51 +1,104 @@
 import React from "react";
+import DisintegrateOnScroll from "./DisintegrateOnScroll";
 
 export default function Education() {
+  const educationData = [
+    {
+      degree: "Master of Science in Computer Science",
+      institution: "University of Arizona",
+      location: "Tucson, AZ, USA",
+      duration: "Aug 2025 – May 2027 (Expected)",
+      gpa: "- / 4.0",
+      coursework: [
+        "Design & Analysis of Algorithms",
+        "Software Engineering",
+        "Computer Networks",
+      ],
+      highlights: [
+        "Graduate coursework emphasizing algorithmic problem-solving and scalable design.",
+      ],
+    },
+    {
+      degree: "Bachelor of Engineering in Information Technology",
+      institution: "K. J. Somaiya College of Engineering",
+      location: "Mumbai, India",
+      duration: "Aug 2021 – June 2025",
+      gpa: "GPA: 8.27 / 10.0",
+      coursework: [
+        "Internet of Things (IoT)",
+        "Data Structures in C++",
+        "Control Systems",
+      ],
+      highlights: [
+        "Capstone: Gait Analysis System using IMU Sensors and Machine Learning.",
+        ],
+    },
+  ];
+
   return (
     <section
       id="education"
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-24 bg-transparent"
+      className="min-h-screen flex flex-col items-center justify-center px-10 lg:px-24 py-24 bg-transparent"
     >
-      <h2 className="text-5xl font-abolition mb-8 bg-clip-text drop-shadow-[0_0_25px_rgba(0,255,255,0.9)]">
-        Education
-      </h2>
+      {/* Title */}
+      <DisintegrateOnScroll>
+        <h2 className="text-5xl font-abolition text-cyan-400 mb-12 text-center">
+          Education
+        </h2>
+      </DisintegrateOnScroll>
 
-      <div className="max-w-4xl mx-auto space-y-6 font-grotesk text-lg text-gray-300">
-        {/* MS in Computer Science */}
-        <div className="bg-[rgba(0,255,255,0.05)] backdrop-blur-sm border border-[rgba(0,255,255,0.2)] rounded-2xl p-6 hover:border-[rgba(0,255,255,0.5)] transition-all duration-300">
-          <h3 className="text-cyan-400 text-2xl font-semibold">
-            University of Arizona
-          </h3>
-          <p className="italic">Master of Science in Computer Science (CS)</p>
-          <p className="text-sm text-gray-400 mt-1">(Expected 2027)</p>
-        </div>
+      {/* Education Cards */}
+      <div className="w-full max-w-6xl flex flex-col gap-10">
+      {educationData.map((edu, i) => (
+        <DisintegrateOnScroll key={i}>
+          <div
+            className="rounded-2xl p-8 md:p-10 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+           transition-all duration-300"
+          >
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-2xl md:text-3xl font-semibold font-grotesk text-white">
+                  {edu.degree}
+                </h3>
+                <span className="text-cyan-400 font-semibold font-semibold font-grotesk text-lg">
+                  {edu.duration}
+                </span>
+              </div>
 
-        {/* B.Tech in IT */}
-        <div className="bg-[rgba(0,255,255,0.05)] backdrop-blur-sm border border-[rgba(0,255,255,0.2)] rounded-2xl p-6 hover:border-[rgba(0,255,255,0.5)] transition-all duration-300">
-          <h3 className="text-cyan-400 text-2xl font-semibold">
-            K. J. Somaiya College of Engineering, Vidyavihar
-          </h3>
-          <p className="italic">Bachelor of Technology in Information Technology (IT)</p>
-          <p className="text-sm text-gray-400 mt-1">GPA: 8.27 &nbsp; | &nbsp; 2021 – 2025</p>
-        </div>
+              {/* Institution Info */}
+              <p className="text-gray-400 text-lg font-regular font-grotesk mb-2">
+                {edu.institution} — {edu.location}
+              </p>
+              {edu.gpa && (
+                <p className="text-gray-400 font-regular font-grotesk italic text-sm mb-4">{edu.gpa}</p>
+              )}
 
-        {/* Higher Secondary */}
-        <div className="bg-[rgba(0,255,255,0.05)] backdrop-blur-sm border border-[rgba(0,255,255,0.2)] rounded-2xl p-6 hover:border-[rgba(0,255,255,0.5)] transition-all duration-300">
-          <h3 className="text-cyan-400 text-2xl font-semibold">
-            Pace Junior Science College, Thane (W)
-          </h3>
-          <p className="italic">Higher Secondary Education (HSC)</p>
-          <p className="text-sm text-gray-400 mt-1">Percentage: 84.67% &nbsp; | &nbsp; 2019 – 2021</p>
-        </div>
+              {/* Coursework */}
+              <div className="mb-4">
+                <h4 className="text-cyan-400 font-semibold font-semibold font-grotesk mb-1">Key Coursework:</h4>
+                <ul className="list-disc list-inside font-regular font-grotesk text-gray-300 space-y-1">
+                  {edu.coursework.map((c, j) => (
+                    <li key={j}>{c}</li>
+                  ))}
+                </ul>
+              </div>
 
-        {/* Secondary Education */}
-        <div className="bg-[rgba(0,255,255,0.05)] backdrop-blur-sm border border-[rgba(0,255,255,0.2)] rounded-2xl p-6 hover:border-[rgba(0,255,255,0.5)] transition-all duration-300">
-          <h3 className="text-cyan-400 text-2xl font-semibold">
-            Sri Ma Vidyalaya, Thane (W)
-          </h3>
-          <p className="italic">Secondary Education (SSC)</p>
-          <p className="text-sm text-gray-400 mt-1">Percentage: 85.80% &nbsp; | &nbsp; 2018 – 2019</p>
-        </div>
+              {/* Highlights */}
+              {edu.highlights && (
+                <div>
+                  <h4 className="text-cyan-400 font-semibold font-semibold font-grotesk mb-1">
+                    Academic Highlights:
+                  </h4>
+                  <ul className="list-disc list-inside font-regular font-grotesk text-gray-300 space-y-1">
+                    {edu.highlights.map((h, j) => (
+                      <li key={j}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </DisintegrateOnScroll>
+        ))}
       </div>
     </section>
   );
