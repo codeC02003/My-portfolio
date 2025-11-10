@@ -55,7 +55,7 @@ export default function Skills() {
         className="text-5xl font-abolition text-white mb-12 text-center z-10"
       >
         My{" "}
-        <span className="text-cyan-400">
+        <span className="text-cyan-400 glow-text">
           Core Skills
         </span>
       </motion.h2>
@@ -68,7 +68,9 @@ export default function Skills() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="rounded-2xl px-8 py-6 flex flex-col gap-4 lex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] transition-all duration-300"
+            className="rounded-2xl px-8 py-6 flex flex-col gap-4 lex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] 
+           transition-all duration-300"
           >
             <h3 className="text-2xl font-semibold font-grotesk text-cyan-400 mb-1">
               {category.title}

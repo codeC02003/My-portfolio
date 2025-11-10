@@ -40,7 +40,7 @@ export default function Education() {
       className="min-h-screen flex flex-col items-center justify-center px-10 lg:px-24 py-24 bg-transparent"
     >
       {/* Title */}
-        <h2 className="text-5xl font-abolition text-cyan-400 mb-12 text-center">
+        <h2 className="text-5xl font-abolition text-cyan-400 mb-12 text-center glow-text">
           Education
         </h2>
       {/* Education Cards */}
@@ -49,6 +49,7 @@ export default function Education() {
         <div key={i}>
           <div
             className="rounded-2xl p-8 md:p-10 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] 
            transition-all duration-300"
           >
               {/* Header */}

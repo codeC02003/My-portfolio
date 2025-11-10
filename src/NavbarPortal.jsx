@@ -41,7 +41,7 @@ function Bar() {
                    bg-[rgba(0,0,0,0.1)] backdrop-blur-xl
                    border border-[rgba(120, 202, 225, 0.24)]
                    rounded-full shadow-[0_0_25px_rgba(0,255,255,0.25)]
-                   px-8 py-2 flex items-center justify-between
+                   px-8 py-2.5 flex items-center justify-between
                    w-[90%] max-w-4xl"
       >
         {/* === Mobile Toggle === */}
@@ -71,7 +71,7 @@ function Bar() {
                 {active === item.id && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute -inset-x-2 -inset-y-2.5 -z-10 rounded-full 
+                    className="absolute -inset-x-2 -inset-y-3 -z-10 rounded-full 
                                border-2 border-cyan-400 
                                bg-[rgba(0,255,255,0.08)] 
                                shadow-[0_0_35px_rgba(0,255,255,0.6)]"

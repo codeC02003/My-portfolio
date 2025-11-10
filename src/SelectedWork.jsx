@@ -48,7 +48,7 @@ export default function Projects() {
       {/* === LEFT PANEL === */}
       <div className="flex-1 flex flex-col">
         {/* Title Above Cards */}
-          <h2 className="text-5xl font-abolition text-white mb-5 mt-10">
+          <h2 className="text-5xl font-abolition text-cyan-400 mb-5 mt-10 glow-text">
             Projects
           </h2>
 

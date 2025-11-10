@@ -24,7 +24,7 @@ export default function Leadership() {
       id="leadership"
       className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-transparent"
     >
-      <h2 className="text-5xl font-abolition mb-12 text-center bg-clip-text">
+      <h2 className="text-5xl font-abolition mb-12 text-center bg-clip-text glow-text text-cyan-400">
         Leadership & Teamwork
       </h2>
       <div className="max-w-5xl mx-auto flex flex-col gap-10 font-grotesk text-gray-300 ">
@@ -32,7 +32,8 @@ export default function Leadership() {
           <div
             key={i}
             className="group bg-[rgba(0,255,255,0.05)] rounded-2xl p-8
-                       transition-all duration-500 ease-out transform border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]"
+                       transition-all duration-500 ease-out transform border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] "
           >
             <h3 className="text-cyan-400 text-2xl font-semibold mb-3">
               {exp.title}

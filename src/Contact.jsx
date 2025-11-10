@@ -18,7 +18,7 @@ export default function Contact() {
       className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-24 py-24 bg-transparent text-white"
     >
       {/* Heading */}
-        <h2 className="text-5xl font-abolition mb-6 text-cyan-400 text-center">
+        <h2 className="text-5xl font-abolition mb-6 text-cyan-400 text-center glow-text">
           Let’s Build Something Great Together
         </h2>
         <p className="text-gray-300 max-w-2xl text-center mb-16 font-grotesk text-lg leading-relaxed">
@@ -30,7 +30,8 @@ export default function Contact() {
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
         {/* Left Info Card */}
           <div
-            className="rounded-2xl p-10 transition-all duration-300 ease-out flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]"
+            className="rounded-2xl p-10 transition-all duration-300 ease-out flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
           >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Get in Touch</h3>
 
@@ -88,7 +89,8 @@ export default function Contact() {
           <form
             onSubmit={handleSubmit}
             className="bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] 
-                       rounded-2xl p-10 transition-all duration-300 ease-out hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]"
+                       rounded-2xl p-10 transition-all duration-300 ease-out hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
           >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Send a Message</h3>
 

@@ -23,7 +23,7 @@ export default function Hero() {
             HI THERE!
           </h1>
           <h2 className="text-4xl lg:text-5xl font-abolition font-bold text-white mt-1">
-            I’M <span className="font-abolition font-bold bg-gradient-to-r from-[#00FFFF] via-[#00FF88] to-[#00FFFF] bg-clip-text text-transparent
+            I AM <span className="font-abolition font-bold bg-gradient-to-r from-[#00FFFF] via-[#00FF88] to-[#00FFFF] bg-clip-text text-transparent
 ">CHINMAY MHATRE</span>
           </h2>
           <p className="text-cyan-300 text-2xl font-semibold font-grotesk mt-2">
@@ -56,8 +56,8 @@ export default function Hero() {
             What I’m Learning
           </h3>
           <ul className="text-gray-300 space-y-1 list-disc list-inside">
-            <li>Advanced AI and Generative Models</li>
-            <li>Cloud Deployment and Scalability (AWS, Docker)</li>
+            <li>Design & Analysis of Algorithms</li>
+            <li>Computer Networks</li>
             <li>Modern React & Tailwind design systems</li>
           </ul>
         </div>

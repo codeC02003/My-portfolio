@@ -10,7 +10,7 @@ export default function About() {
       <div className="md:w-3/5 min-h-screen flex flex-col space-y-8 font-grotesk text-gray-300 text-lg leading-relaxed flex-col"> 
         {/* === 1. Short Intro === */}
           <h2 className="text-5xl font-abolition mb-8 bg-clip-text text-cyan-400">
-    <span className="inline-block w-fit leading-none">About Me</span>
+    <span className="inline-block w-fit leading-none glow-text">About Me</span>
 </h2>
           <p>
             I’m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, a Computer Science graduate student 
