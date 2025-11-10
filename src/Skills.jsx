@@ -2,10 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaDocker, FaAws } from "react-icons/fa";
 import {
-  SiCplusplus, SiJavascript, SiMongodb, SiTailwindcss, SiTensorflow,
+  SiCplusplus, SiJavascript, SiTailwindcss,
   SiFigma, SiCanva
 } from "react-icons/si";
-import DisintegrateOnScroll from "./DisintegrateOnScroll";
 
 export default function Skills() {
   const skillCategories = [
@@ -49,7 +48,6 @@ export default function Skills() {
     >
 
       {/* Section Title */}
-      <DisintegrateOnScroll>
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -60,13 +58,11 @@ export default function Skills() {
         <span className="text-cyan-400">
           Core Skills
         </span>
-      </motion.h2></DisintegrateOnScroll>
-
+      </motion.h2>
       {/* Skill Bars */}
       
       <div className="w-full max-w-4xl flex flex-col gap-8 z-10">
         {skillCategories.map((category, i) => (
-          <DisintegrateOnScroll>
           <motion.div
             key={i}
             initial={{ opacity: 0, x: -30 }}
@@ -94,7 +90,6 @@ export default function Skills() {
               ))}
             </div>
           </motion.div>
-          </DisintegrateOnScroll>
         ))}
       </div>
       

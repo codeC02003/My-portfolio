@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import DisintegrateOnScroll from "./DisintegrateOnScroll";
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState("");
@@ -19,7 +18,6 @@ export default function Contact() {
       className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-24 py-24 bg-transparent text-white"
     >
       {/* Heading */}
-      <DisintegrateOnScroll>
         <h2 className="text-5xl font-abolition mb-6 text-cyan-400 text-center">
           Let’s Build Something Great Together
         </h2>
@@ -27,12 +25,10 @@ export default function Contact() {
           Whether you’re looking to collaborate on a project, discuss a research idea, or explore opportunities in AI and software engineering,  
           I’d love to hear from you.
         </p>
-      </DisintegrateOnScroll>
 
       {/* Main Content */}
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
         {/* Left Info Card */}
-        <DisintegrateOnScroll>
           <div
             className="rounded-2xl p-10 transition-all duration-300 ease-out flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]"
           >
@@ -88,10 +84,7 @@ export default function Contact() {
               </a>
             </div>
           </div>
-        </DisintegrateOnScroll>
-
-        {/* Right Contact Form */}
-        <DisintegrateOnScroll>
+        
           <form
             onSubmit={handleSubmit}
             className="bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] 
@@ -142,17 +135,14 @@ export default function Contact() {
               </button>
             </div>
           </form>
-        </DisintegrateOnScroll>
       </div>
 
       {/* Call-to-Action */}
-      <DisintegrateOnScroll>
         <p className="mt-20 text-gray-400 text-center text-lg font-grotesk">
           Currently open to <span className="text-cyan-400 font-semibold">
           internships, research collaborations</span>, and software development roles.  
           Let’s make something impactful together.
         </p>
-      </DisintegrateOnScroll>
-    </section>
+     </section>
   );
 }

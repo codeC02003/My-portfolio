@@ -1,5 +1,4 @@
 import React from "react";
-import DisintegrateOnScroll from "./DisintegrateOnScroll";
 
 export default function About() {
   return (
@@ -11,12 +10,8 @@ export default function About() {
       <div className="md:w-3/5 min-h-screen flex flex-col space-y-8 font-grotesk text-gray-300 text-lg leading-relaxed flex-col"> 
         {/* === 1. Short Intro === */}
           <h2 className="text-5xl font-abolition mb-8 bg-clip-text text-cyan-400">
-  <DisintegrateOnScroll>
     <span className="inline-block w-fit leading-none">About Me</span>
-  </DisintegrateOnScroll>
 </h2>
-
-        <DisintegrateOnScroll>
           <p>
             I’m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, a Computer Science graduate student 
             at the University of Arizona, focused on building <span className="text-cyan-400 font-semibold">
@@ -24,10 +19,6 @@ export default function About() {
             I love designing technologies that blend precision with creativity, from 
             low-level logic to user-first interfaces.
           </p>
-        </DisintegrateOnScroll>
-
-        {/* === 2. Technical Identity === */}
-        <DisintegrateOnScroll>
           <p>
             My technical work revolves around <span className="text-cyan-400 font-semibold">
             Artificial Intelligence, Machine Learning, and Software Development</span>.  
@@ -36,10 +27,6 @@ export default function About() {
             I enjoy working on projects that merge <span className="text-cyan-400 font-semibold">
             data, design, and distributed systems</span> to solve real-world challenges.
           </p>
-        </DisintegrateOnScroll>
-
-        {/* === 3. Approach / Philosophy === */}
-        <DisintegrateOnScroll>
           <p>
             My development philosophy centers on <span className="text-cyan-400 font-semibold">
             clean architecture, iterative improvement, and collaboration</span>.  
@@ -48,10 +35,6 @@ export default function About() {
             simplifying complex workflows.  
             I value deep work, continuous learning, and the art of elegant problem-solving.
           </p>
-        </DisintegrateOnScroll>
-
-        {/* === 4. Personal Touch === */}
-        <DisintegrateOnScroll>
           <p>
             Outside of code, I’m driven by <span className="text-cyan-400 font-semibold">
             design, innovation, and curiosity</span>.  
@@ -60,17 +43,12 @@ export default function About() {
             When not in front of a screen, you’ll find me sketching, tinkering with hardware, 
             or chasing new learning paths.
           </p>
-        </DisintegrateOnScroll>
-
-        {/* === 5. Call to Action === */}
-        <DisintegrateOnScroll>
           <p>
             I’m currently open to <span className="text-cyan-400 font-semibold">
             research collaborations, AI-driven internships, or software development roles</span> 
             that challenge me to grow and build impactful systems.  
             Feel free to explore my projects and connect, I’d love to collaborate on something meaningful.
           </p>
-        </DisintegrateOnScroll>
       </div>
     </section>
   );

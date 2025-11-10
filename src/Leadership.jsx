@@ -1,5 +1,4 @@
 import React from "react";
-import DisintegrateOnScroll from "./DisintegrateOnScroll";
 
 export default function Leadership() {
   const experiences = [
@@ -24,11 +23,10 @@ export default function Leadership() {
     <section
       id="leadership"
       className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-transparent"
-    ><DisintegrateOnScroll>
+    >
       <h2 className="text-5xl font-abolition mb-12 text-center bg-clip-text">
         Leadership & Teamwork
-      </h2></DisintegrateOnScroll>
-      <DisintegrateOnScroll>
+      </h2>
       <div className="max-w-5xl mx-auto flex flex-col gap-10 font-grotesk text-gray-300 ">
         {experiences.map((exp, i) => (
           <div
@@ -45,7 +43,6 @@ export default function Leadership() {
           </div>
         ))}
       </div>
-      </DisintegrateOnScroll>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import DisintegrateOnScroll from "./DisintegrateOnScroll";
 
 export default function Projects() {
   const projects = [
@@ -49,11 +48,9 @@ export default function Projects() {
       {/* === LEFT PANEL === */}
       <div className="flex-1 flex flex-col">
         {/* Title Above Cards */}
-        <DisintegrateOnScroll>
           <h2 className="text-5xl font-abolition text-white mb-5 mt-10">
             Projects
           </h2>
-        </DisintegrateOnScroll>
 
         {/* Project List */}
         <div className="flex flex-col gap-6">
@@ -80,8 +77,7 @@ export default function Projects() {
       <div
         className="flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)]
                     rounded-2xl p-8 min-h-[400px] transition-all duration-500"
-      ><DisintegrateOnScroll>
-        <AnimatePresence mode="wait">
+      ><AnimatePresence mode="wait">
           <motion.div
             key={selected.id}
             initial={{ opacity: 0, x: 50 }}
@@ -147,7 +143,6 @@ export default function Projects() {
             </div>
           </motion.div>
         </AnimatePresence>
-        </DisintegrateOnScroll>
       </div>
     </section>
   );
