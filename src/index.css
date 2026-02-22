@@ -3,6 +3,7 @@
   src: url("/fonts/AbolitionTest-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -90,24 +91,6 @@ html {
 
 canvas {
   mix-blend-mode: screen;
-  filter: url(#swirl) blur(1px);
-}
-
-body {
-  margin: 0;
-  background: radial-gradient(circle at 30% 30%, #030b18, #01040a 50%, #000000 100%);
-  overflow-x: hidden;
-  color: white;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  margin: 0;
-  background: radial-gradient(circle at 40% 30%, #040912, #01030a 60%, #000000 100%);
-  background-attachment: fixed;
-  color: white;
-  overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
 }
 
 #galaxy-bg {
@@ -132,11 +115,15 @@ body {
   opacity: .7;
 }
 
-@keyframes twinkleColor {
-  0% { opacity: .6; filter: hue-rotate(0deg) brightness(.9); }
-  50% { opacity: 1; filter: hue-rotate(35deg) brightness(1.05); }
-  100%{ opacity: .6; filter: hue-rotate(0deg) brightness(.9); }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 40% 30%, #040912, #01030a 60%, #000000 100%);
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
 }
+
 
 /* Reduce GPU-heavy effects on small screens */
 @media (max-width: 768px) {

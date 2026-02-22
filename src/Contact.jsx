@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
+const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState("");
@@ -15,24 +18,38 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-24 py-24 bg-transparent text-white"
+      className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-24 py-24 bg-transparent text-white scroll-mt-20"
     >
-      {/* Heading */}
-        <h2 className="text-5xl font-abolition mb-6 text-cyan-400 text-center glow-text">
-          Let’s Build Something Great Together
-        </h2>
-        <p className="text-gray-300 max-w-2xl text-center mb-16 font-grotesk text-lg leading-relaxed">
-          Whether you’re looking to collaborate on a project, discuss a research idea, or explore opportunities in AI and software engineering,  
-          I’d love to hear from you.
-        </p>
+      <motion.h2
+        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: false, margin: "-80px" }}
+        transition={SPRING}
+        className="text-5xl font-abolition mb-6 text-cyan-400 text-center glow-text"
+      >
+        Let&apos;s Build Something Great Together
+      </motion.h2>
 
-      {/* Main Content */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, margin: "-60px" }}
+        transition={{ ...SPRING, delay: 0.1 }}
+        className="text-gray-300 max-w-2xl text-center mb-16 font-grotesk text-lg leading-relaxed"
+      >
+        Whether you&apos;re looking to collaborate on a project, discuss a research idea, or
+        explore opportunities in AI and software engineering, I&apos;d love to hear from you.
+      </motion.p>
+
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
-        {/* Left Info Card */}
-          <div
-            className="rounded-2xl p-10 transition-all duration-300 ease-out flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
-           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
-          >
+        <motion.div
+          initial={{ opacity: 0, x: -50, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: false, margin: "-60px" }}
+          transition={SPRING}
+          className="rounded-2xl p-10 transition-all duration-300 ease-out flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
+         hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
+        >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Get in Touch</h3>
 
             <ul className="space-y-6 text-lg font-grotesk">
@@ -72,26 +89,18 @@ export default function Contact() {
               </li>
             </ul>
 
-            <div className="mt-10">
-              <a
-                href="https://drive.google.com/file/d/1ghBRawoioKQO9AtGH8MinY_i2qfN9HCN/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-cyan-500/20 border border-cyan-400 
-                           text-cyan-300 rounded-full font-semibold font-grotesk transition-all
-                           hover:bg-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,255,255,0.6)]"
-              >
-                Download Resume
-              </a>
-            </div>
-          </div>
-        
-          <form
-            onSubmit={handleSubmit}
-            className="bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] 
-                       rounded-2xl p-10 transition-all duration-300 ease-out hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
-           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
-          >
+        </motion.div>
+
+        <motion.form
+          initial={{ opacity: 0, x: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: false, margin: "-60px" }}
+          transition={{ ...SPRING, delay: 0.1 }}
+          onSubmit={handleSubmit}
+          className="bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)]
+                     rounded-2xl p-10 transition-all duration-300 ease-out hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
+                     hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
+        >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Send a Message</h3>
 
             <div className="flex flex-col space-y-5">
@@ -136,7 +145,7 @@ export default function Contact() {
                   : "Send Message"}
               </button>
             </div>
-          </form>
+        </motion.form>
       </div>
 
       {/* Call-to-Action */}

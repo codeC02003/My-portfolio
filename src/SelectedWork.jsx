@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
@@ -43,7 +43,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col lg:flex-row items-start justify-center px-6 py-20 gap-10"
+      className="min-h-screen flex flex-col lg:flex-row items-start justify-center px-6 py-20 gap-10 scroll-mt-20"
     >
       {/* === LEFT PANEL === */}
       <div className="flex-1 flex flex-col">
@@ -115,7 +115,7 @@ export default function Projects() {
               </div>
 
               <div>
-                <h4 className="text-sm text-gray-400 tracking-widest font-medium font-groteskmb-1">
+                <h4 className="text-sm text-gray-400 tracking-widest font-medium font-grotesk mb-1">
                   MY ROLE
                 </h4>
                 <p className="text-gray-200 text-sm leading-relaxed font-regular font-grotesk italic">

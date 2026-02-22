@@ -1,4 +1,6 @@
-import React from "react";
+import { motion } from "framer-motion";
+
+const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 
 export default function Education() {
   const educationData = [
@@ -37,19 +39,30 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="min-h-screen flex flex-col items-center justify-center px-10 lg:px-24 py-24 bg-transparent"
+      className="min-h-screen flex flex-col items-center justify-center px-10 lg:px-24 py-24 bg-transparent scroll-mt-20"
     >
-      {/* Title */}
-        <h2 className="text-5xl font-abolition text-cyan-400 mb-12 text-center glow-text">
-          Education
-        </h2>
-      {/* Education Cards */}
+      <motion.h2
+        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: false, margin: "-80px" }}
+        transition={SPRING}
+        className="text-5xl font-abolition text-cyan-400 mb-12 text-center glow-text"
+      >
+        Education
+      </motion.h2>
+
       <div className="w-full max-w-6xl flex flex-col gap-10">
       {educationData.map((edu, i) => (
-        <div key={i}>
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, margin: "-60px" }}
+          transition={{ ...SPRING, delay: i * 0.1 }}
+        >
           <div
-            className="rounded-2xl p-8 md:p-10 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
-           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] 
+            className="rounded-2xl p-8 md:p-10 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]
            transition-all duration-300"
           >
               {/* Header */}
@@ -57,7 +70,7 @@ export default function Education() {
                 <h3 className="text-2xl md:text-3xl font-semibold font-grotesk text-white">
                   {edu.degree}
                 </h3>
-                <span className="text-cyan-400 font-semibold font-semibold font-grotesk text-lg">
+                <span className="text-cyan-400 font-semibold font-grotesk text-lg">
                   {edu.duration}
                 </span>
               </div>
@@ -72,7 +85,7 @@ export default function Education() {
 
               {/* Coursework */}
               <div className="mb-4">
-                <h4 className="text-cyan-400 font-semibold font-semibold font-grotesk mb-1">Key Coursework:</h4>
+                <h4 className="text-cyan-400 font-semibold font-grotesk mb-1">Key Coursework:</h4>
                 <ul className="list-disc list-inside font-regular font-grotesk text-gray-300 space-y-1">
                   {edu.coursework.map((c, j) => (
                     <li key={j}>{c}</li>
@@ -83,7 +96,7 @@ export default function Education() {
               {/* Highlights */}
               {edu.highlights && (
                 <div>
-                  <h4 className="text-cyan-400 font-semibold font-semibold font-grotesk mb-1">
+                  <h4 className="text-cyan-400 font-semibold font-grotesk mb-1">
                     Academic Highlights:
                   </h4>
                   <ul className="list-disc list-inside font-regular font-grotesk text-gray-300 space-y-1">
@@ -94,7 +107,7 @@ export default function Education() {
                 </div>
               )}
             </div>
-          </div>
+        </motion.div>
         ))}
       </div>
     </section>

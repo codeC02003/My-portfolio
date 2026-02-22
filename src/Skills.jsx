@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaDocker, FaAws } from "react-icons/fa";
 import {
@@ -44,7 +43,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 relative"
+      className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 relative scroll-mt-20"
     >
 
       {/* Section Title */}
@@ -68,7 +67,7 @@ export default function Skills() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="rounded-2xl px-8 py-6 flex flex-col gap-4 lex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
+            className="rounded-2xl px-8 py-6 flex flex-col gap-4 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
            hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] 
            transition-all duration-300"
           >

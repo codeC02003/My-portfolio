@@ -1,16 +1,86 @@
-# React + Vite
+# Chinmay Mhatre — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with React, Vite, and Tailwind CSS. Cyberpunk/neon aesthetic with a starfield background, glassmorphism cards, a WebGL 4D Tesseract that teleports between hero and corner positions on scroll, and smooth Framer Motion animations throughout.
 
-Currently, two official plugins are available:
+🔗 **Live:** [chinmaymhatre.vercel.app](https://chinmaymhatre.vercel.app) *(or your deployed URL)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Teleporting Tesseract** — A 4D hypercube rendered in WebGL occupies the hero viewport. Once you scroll past 45% of the viewport height it teleports (vanish + materialize animation with expanding cyan rings) to a 120×120 fixed corner widget. Scrolling back up teleports it home. A 620 ms cooldown lock prevents animation conflicts during fast scrolling.
+- **Left sidebar nav** — Fixed 100 px sidebar with scroll-spy (IntersectionObserver) and a `layoutId` animated glow ring that slides between active items.
+- **Hero glassmorphism card** — Backdrop-blur card that fades and rises on scroll, with an animated "EXPLORE" chevron button that disappears once the user scrolls away.
+- **Starfield background** — Three-layer CSS keyframe star animation.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Sections
+
+| Section | Description |
+|---|---|
+| **Hero** | Introduction, location, CTA buttons (GitHub, LinkedIn, Email, Resume) |
+| **About** | Background, tech stack, philosophy, interests |
+| **Education** | MS CS @ University of Arizona · BE IT @ K.J. Somaiya |
+| **Skills** | C++, Python, JS / React, Node.js, Tailwind / Docker, AWS, Git / Figma, Canva |
+| **Projects** | Gait Analysis (IoT + ML), WeConnect (NGO platform), Ticket Booking site |
+| **Leadership** | KJSCE Insignia Art Team, Head of Art Team, Codecell Creative Member |
+| **Contact** | Email form + social links |
+
+---
+
+## Tech Stack
+
+- **React 18** + **Vite 7**
+- **Tailwind CSS 3**
+- **Framer Motion** — scroll-triggered animations, teleport-phase sphere, spring-physics navbar indicator
+- **Three.js / WebGL** — interactive 4D Tesseract (hypercube) rendered on canvas
+- **React Icons** — icon library
+- **Custom fonts** — Abolition (headings), Lil Grotesk (body)
+- **CSS starfield** — multi-layer animated galaxy background
+
+---
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── App.jsx              # Root layout
+├── NavbarPortal.jsx     # Fixed left sidebar nav with scroll-spy & glow indicator
+├── FloatingSphere.jsx   # Standalone Tesseract — teleports hero ↔ mini on scroll
+├── Tesseract.jsx        # Three.js WebGL 4D hypercube renderer
+├── Hero.jsx             # Landing section (glassmorphism card + scroll-fade)
+├── About.jsx            # About me
+├── Education.jsx        # Education cards
+├── Skills.jsx           # Skill categories with icons
+├── SelectedWork.jsx     # Interactive project panel
+├── Leadership.jsx       # Leadership & teamwork
+├── Contact.jsx          # Contact form + info
+├── index.css            # Global styles, fonts, starfield
+└── assets/              # Static assets & GLSL shaders
+```
+
+---
+
+## Contact
+
+**Chinmay Mhatre** · chinmaymhatre02003@gmail.com
+[LinkedIn](https://www.linkedin.com/in/chinmay-mhatre-857825193/) · [GitHub](https://github.com/codeC02003)

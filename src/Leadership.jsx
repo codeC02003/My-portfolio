@@ -1,4 +1,6 @@
-import React from "react";
+import { motion } from "framer-motion";
+
+const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 
 export default function Leadership() {
   const experiences = [
@@ -22,26 +24,34 @@ export default function Leadership() {
   return (
     <section
       id="leadership"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-transparent"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-transparent scroll-mt-20"
     >
-      <h2 className="text-5xl font-abolition mb-12 text-center bg-clip-text glow-text text-cyan-400">
-        Leadership & Teamwork
-      </h2>
-      <div className="max-w-5xl mx-auto flex flex-col gap-10 font-grotesk text-gray-300 ">
+      <motion.h2
+        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: false, margin: "-80px" }}
+        transition={SPRING}
+        className="text-5xl font-abolition mb-12 text-center glow-text text-cyan-400"
+      >
+        Leadership &amp; Teamwork
+      </motion.h2>
+
+      <div className="max-w-5xl mx-auto flex flex-col gap-10 font-grotesk text-gray-300">
         {experiences.map((exp, i) => (
-          <div
+          <motion.div
             key={i}
-            className="group bg-[rgba(0,255,255,0.05)] rounded-2xl p-8
-                       transition-all duration-500 ease-out transform border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
-           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] "
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, margin: "-60px" }}
+            transition={{ ...SPRING, delay: i * 0.08 }}
+            className="bg-[rgba(0,255,255,0.05)] rounded-2xl p-8
+                       transition-all duration-500 ease-out border border-[rgba(0,255,255,0.15)]
+                       hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
+                       hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
           >
-            <h3 className="text-cyan-400 text-2xl font-semibold mb-3">
-              {exp.title}
-            </h3>
-            <p className="text-gray-300 leading-relaxed text-[1rem]">
-              {exp.details}
-            </p>
-          </div>
+            <h3 className="text-cyan-400 text-2xl font-semibold mb-3">{exp.title}</h3>
+            <p className="text-gray-300 leading-relaxed text-[1rem]">{exp.details}</p>
+          </motion.div>
         ))}
       </div>
     </section>
