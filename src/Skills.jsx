@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaDocker, FaAws } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaCloud, FaCode } from "react-icons/fa";
 import {
-  SiCplusplus, SiJavascript, SiTailwindcss,
-  SiFigma, SiCanva
+  SiCplusplus, SiJavascript, SiPhp, SiMysql,
+  SiHtml5, SiCss3, SiFigma, SiAdobeillustrator, SiTensorflow
 } from "react-icons/si";
 
 export default function Skills() {
@@ -10,32 +10,39 @@ export default function Skills() {
     {
       title: "Programming Languages",
       skills: [
-        { icon: <SiCplusplus color="#00599C" />, name: "C++" },
         { icon: <FaPython color="#3776AB" />, name: "Python" },
+        { icon: <SiCplusplus color="#00599C" />, name: "C / C++" },
         { icon: <SiJavascript color="#F7DF1E" />, name: "JavaScript" },
+        { icon: <SiPhp color="#777BB4" />, name: "PHP" },
+        { icon: <SiMysql color="#4479A1" />, name: "SQL" },
       ],
     },
     {
-      title: "Frameworks & Libraries",
+      title: "Frameworks & Tools",
       skills: [
-        { icon: <FaReact color="#61DAFB" />, name: "React.js" },
+        { icon: <FaReact color="#61DAFB" />, name: "React" },
         { icon: <FaNodeJs color="#68A063" />, name: "Node.js" },
-        { icon: <SiTailwindcss color="#38B2AC" />, name: "Tailwind CSS" },
-      ],
-    },
-    {
-      title: "Tools & Cloud",
-      skills: [
-        { icon: <FaDocker color="#0db7ed" />, name: "Docker" },
-        { icon: <FaAws color="#FF9900" />, name: "AWS" },
+        { icon: <SiTensorflow color="#FF6F00" />, name: "TensorFlow" },
         { icon: <FaGitAlt color="#F1502F" />, name: "Git" },
+        { icon: <FaCode color="#00CFFF" />, name: "OpenSim" },
       ],
     },
     {
-      title: "Design",
+      title: "Web Development",
+      skills: [
+        { icon: <SiHtml5 color="#E34F26" />, name: "HTML" },
+        { icon: <SiCss3 color="#1572B6" />, name: "CSS" },
+        { icon: <SiMysql color="#4479A1" />, name: "MySQL" },
+        { icon: <FaCode color="#00CFFF" />, name: "REST APIs" },
+      ],
+    },
+    {
+      title: "Design & Other",
       skills: [
         { icon: <SiFigma color="#F24E1E" />, name: "Figma" },
-        { icon: <SiCanva color="#00C4CC" />, name: "Canva" },
+        { icon: <SiAdobeillustrator color="#FF9A00" />, name: "Adobe Illustrator" },
+        { icon: <FaCloud color="#00BFFF" />, name: "Cloud Computing" },
+        { icon: <FaCode color="#00CFFF" />, name: "IoT Systems" },
       ],
     },
   ];
@@ -58,8 +65,7 @@ export default function Skills() {
           Core Skills
         </span>
       </motion.h2>
-      {/* Skill Bars */}
-      
+
       <div className="w-full max-w-4xl flex flex-col gap-8 z-10">
         {skillCategories.map((category, i) => (
           <motion.div
@@ -67,8 +73,8 @@ export default function Skills() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="rounded-2xl px-8 py-6 flex flex-col gap-4 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)] 
-           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)] 
+            className="rounded-2xl px-8 py-6 flex flex-col gap-4 flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
+           hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]
            transition-all duration-300"
           >
             <h3 className="text-2xl font-semibold font-grotesk text-cyan-400 mb-1">
@@ -79,7 +85,7 @@ export default function Skills() {
               {category.skills.map((skill, j) => (
                 <div
                   key={j}
-                  className="flex items-center gap-2 px-6 py-2 rounded-full border border-cyan-400 
+                  className="flex items-center gap-2 px-6 py-2 rounded-full border border-cyan-400
                         text-white font-grotesk text-lg relative overflow-hidden
                         transition-all duration-500 ease-out
                         shadow-[0_0_25px_rgba(0,255,255,0.2)]
@@ -93,7 +99,7 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
-      
+
     </section>
   );
 }

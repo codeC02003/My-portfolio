@@ -19,55 +19,52 @@ export default function About() {
 
         {[
           <>
-            I&apos;m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, a Computer
-            Science graduate student at the University of Arizona, focused on building{" "}
+            I&apos;m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, an
+            innovative and adaptable Computer Science graduate student at the University of Arizona,
+            with a robust background in{" "}
             <span className="text-cyan-400 font-semibold">
-              intelligent, scalable, and human-centered systems
+              software development, data structures &amp; algorithms, object-oriented programming,
+              databases, and artificial intelligence
             </span>
-            . I love designing technologies that blend precision with creativity, from
-            low-level logic to user-first interfaces.
+            . I love designing technologies that blend precision with creativity.
           </>,
           <>
-            My technical work revolves around{" "}
+            My technical work spans{" "}
             <span className="text-cyan-400 font-semibold">
-              Artificial Intelligence, Machine Learning, and Software Development
+              AI, Machine Learning, full-stack web development, and IoT systems
             </span>
-            . I&apos;ve engineered solutions in{" "}
-            <span className="text-cyan-400 font-semibold">Python, C++, and JavaScript</span> using
-            frameworks like{" "}
-            <span className="text-cyan-400 font-semibold">React, Node.js, and TensorFlow</span>. I
-            enjoy working on projects that merge{" "}
+            . I&apos;ve built solutions in{" "}
+            <span className="text-cyan-400 font-semibold">Python, C++, JavaScript, PHP, and SQL</span>{" "}
+            using frameworks like{" "}
+            <span className="text-cyan-400 font-semibold">React, Node.js, and TensorFlow</span>,
+            alongside hands-on experience with{" "}
+            <span className="text-cyan-400 font-semibold">MEMS sensors, REST APIs, and cloud computing</span>.
+          </>,
+          <>
+            I have demonstrated{" "}
             <span className="text-cyan-400 font-semibold">
-              data, design, and distributed systems
+              leadership and project management skills
             </span>{" "}
-            to solve real-world challenges.
-          </>,
-          <>
-            My development philosophy centers on{" "}
-            <span className="text-cyan-400 font-semibold">
-              clean architecture, iterative improvement, and collaboration
-            </span>
-            . I believe the best systems balance{" "}
-            <span className="text-cyan-400 font-semibold">
-              performance, clarity, and adaptability
-            </span>
-            — whether that means optimizing algorithms or simplifying complex workflows. I value
-            deep work, continuous learning, and the art of elegant problem-solving.
+            through successful development of dynamic web platforms and a sophisticated gait analysis
+            system utilizing Inertial Measurement Unit sensors — achieving over{" "}
+            <span className="text-cyan-400 font-semibold">92% accuracy</span> in real-time gait
+            event detection validated with hospital physiotherapists.
           </>,
           <>
             Outside of code, I&apos;m driven by{" "}
             <span className="text-cyan-400 font-semibold">design, innovation, and curiosity</span>.
-            I love exploring UI/UX, creating digital art, and understanding how human behaviour
-            shapes technology. When not in front of a screen, you&apos;ll find me sketching,
-            tinkering with hardware, or chasing new learning paths.
+            I love exploring UI/UX, creating digital art with Figma and Adobe Illustrator, and
+            understanding how human behavior shapes technology. Known for blending{" "}
+            <span className="text-cyan-400 font-semibold">creative vision with technical expertise</span>{" "}
+            in both individual and collaborative settings.
           </>,
           <>
-            I&apos;m currently open to{" "}
+            I&apos;m currently seeking a{" "}
             <span className="text-cyan-400 font-semibold">
-              research collaborations, AI-driven internships, or software development roles
-            </span>{" "}
-            that challenge me to grow and build impactful systems. Feel free to explore my
-            projects and connect — I&apos;d love to collaborate on something meaningful.
+              challenging internship in Computer Science — particularly in AI &amp; ML
+            </span>
+            . Feel free to explore my projects and connect — I&apos;d love to collaborate on
+            something impactful.
           </>,
         ].map((para, i) => (
           <motion.p

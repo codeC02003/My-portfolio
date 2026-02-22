@@ -17,7 +17,7 @@
 
 ---
 
-## ⚡ What Makes This Portfolio Stand Out
+## What Makes This Portfolio Stand Out
 
 | Feature | Description |
 |---|---|
@@ -30,7 +30,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 <div align="center">
 
@@ -51,7 +51,7 @@
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -75,7 +75,7 @@ src/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 # Clone the repo
@@ -97,7 +97,7 @@ npm run preview
 
 ---
 
-## 📌 Sections
+## Sections
 
 | Section | Highlights |
 |---|---|
@@ -111,7 +111,7 @@ npm run preview
 
 ---
 
-## 🔍 SEO & Performance
+## SEO & Performance
 
 - Semantic HTML structure with proper heading hierarchy
 - Meta tags optimized for search engines and social sharing
@@ -125,7 +125,7 @@ npm run preview
 
 **Chinmay Mhatre** · Full-Stack Developer · Arizona, USA
 
-[🌐 Live Site](https://chinmaymhatre.vercel.app) · [💼 LinkedIn](https://www.linkedin.com/in/chinmay-mhatre-857825193/) · [🐙 GitHub](https://github.com/codeC02003) · [✉️ Email](mailto:chinmaymhatre02003@gmail.com)
+[Live Site](https://chinmaymhatre.vercel.app) · [LinkedIn](https://www.linkedin.com/in/chinmay-mhatre-857825193/) · [GitHub](https://github.com/codeC02003) · [Email](mailto:chinmaymhatre02003@gmail.com)
 
 *Built with React + Vite · Deployed on Vercel*
 

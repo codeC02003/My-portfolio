@@ -97,7 +97,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="text-cyan-300 text-xl lg:text-2xl font-semibold font-grotesk mt-3 select-none"
           >
-            AI &amp; Software Enthusiast
+            CS Grad Student · AI &amp; ML Enthusiast
           </motion.p>
 
           {/* Divider */}
@@ -129,11 +129,12 @@ export default function Hero() {
             transition={{ delay: 0.58 }}
             className="text-gray-300/85 font-grotesk text-base leading-relaxed mb-4 select-none"
           >
-            CS grad student building intelligent, scalable systems. Seeking
-            internships in{" "}
+            Innovative CS grad student with a strong background in software
+            development, AI, and full-stack engineering. Seeking internships in{" "}
             <span className="text-cyan-400 font-semibold">
               AI, ML, or Software Engineering
-            </span>.
+            </span>
+            .
           </motion.p>
 
           {/* Social buttons */}

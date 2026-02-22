@@ -5,17 +5,20 @@ const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 export default function Leadership() {
   const experiences = [
     {
-      title: "KJSCE Insignia - Art Team Member",
+      title: "KJSCE Insignia – Art Team Member",
+      period: "2021 – 2022",
       details:
         "Contributed to the creation of art decorations for college events, applying creativity and teamwork skills to enhance event aesthetics and atmosphere.",
     },
     {
-      title: "KJSCE Insignia - Head of Art Team",
+      title: "KJSCE Insignia – Head of Art Team",
+      period: "2022 – 2023",
       details:
         "Directed a team to produce visually impactful decorations for major college events, demonstrating strong leadership, organizational, and creative skills. Successfully executed complex projects, earning recognition for effective team management and strategic vision.",
     },
     {
       title: "KJSCE Codecell – Creative Member",
+      period: "2023 – 2024",
       details:
         "Played a key role in event design and execution, including the creation of logos, banners, and digital assets, as well as logistics and media management. Assisted in conducting a college hackathon, further developing event management skills. Enhanced technical proficiency in web design and competitive programming, showcasing the ability to blend creativity with technical expertise in high-stakes environments.",
     },
@@ -49,7 +52,10 @@ export default function Leadership() {
                        hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
                        hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
           >
-            <h3 className="text-cyan-400 text-2xl font-semibold mb-3">{exp.title}</h3>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+              <h3 className="text-cyan-400 text-2xl font-semibold">{exp.title}</h3>
+              <span className="text-gray-400 font-grotesk text-sm mt-1 md:mt-0">{exp.period}</span>
+            </div>
             <p className="text-gray-300 leading-relaxed text-[1rem]">{exp.details}</p>
           </motion.div>
         ))}

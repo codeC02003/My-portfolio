@@ -8,8 +8,8 @@ export default function Education() {
       degree: "Master of Science in Computer Science",
       institution: "University of Arizona",
       location: "Tucson, AZ, USA",
-      duration: "Aug 2025 – May 2027 (Expected)",
-      gpa: "- / 4.0",
+      duration: "2025 – Expected May 2027",
+      gpa: null,
       coursework: [
         "Design & Analysis of Algorithms",
         "Software Engineering",
@@ -20,19 +20,37 @@ export default function Education() {
       ],
     },
     {
-      degree: "Bachelor of Engineering in Information Technology",
+      degree: "B.Tech in Information Technology",
       institution: "K. J. Somaiya College of Engineering",
       location: "Mumbai, India",
-      duration: "Aug 2021 – June 2025",
+      duration: "2021 – 2025",
       gpa: "GPA: 8.27 / 10.0",
       coursework: [
         "Internet of Things (IoT)",
         "Data Structures in C++",
-        "Control Systems",
+        "Theory of Computation",
       ],
       highlights: [
         "Capstone: Gait Analysis System using IMU Sensors and Machine Learning.",
-        ],
+      ],
+    },
+    {
+      degree: "Higher Secondary Education (HSC)",
+      institution: "Pace Junior Science College",
+      location: "Thane (W), India",
+      duration: "2019 – 2021",
+      gpa: "Score: 84.67%",
+      coursework: [],
+      highlights: [],
+    },
+    {
+      degree: "Secondary Education (SSC)",
+      institution: "Sri Ma Vidyalaya",
+      location: "Thane (W), India",
+      duration: "2018 – 2019",
+      gpa: "Score: 85.80%",
+      coursework: [],
+      highlights: [],
     },
   ];
 
@@ -84,17 +102,19 @@ export default function Education() {
               )}
 
               {/* Coursework */}
-              <div className="mb-4">
-                <h4 className="text-cyan-400 font-semibold font-grotesk mb-1">Key Coursework:</h4>
-                <ul className="list-disc list-inside font-regular font-grotesk text-gray-300 space-y-1">
-                  {edu.coursework.map((c, j) => (
-                    <li key={j}>{c}</li>
-                  ))}
-                </ul>
-              </div>
+              {edu.coursework.length > 0 && (
+                <div className="mb-4">
+                  <h4 className="text-cyan-400 font-semibold font-grotesk mb-1">Key Coursework:</h4>
+                  <ul className="list-disc list-inside font-regular font-grotesk text-gray-300 space-y-1">
+                    {edu.coursework.map((c, j) => (
+                      <li key={j}>{c}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Highlights */}
-              {edu.highlights && (
+              {edu.highlights && edu.highlights.length > 0 && (
                 <div>
                   <h4 className="text-cyan-400 font-semibold font-grotesk mb-1">
                     Academic Highlights:
