@@ -43,7 +43,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col lg:flex-row items-start justify-center px-6 py-20 gap-10 scroll-mt-20"
+      className="flex flex-col lg:flex-row items-start justify-center px-6 py-12 gap-10 scroll-mt-20"
     >
       {/* === LEFT PANEL === */}
       <div className="flex-1 flex flex-col">

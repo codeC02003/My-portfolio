@@ -93,6 +93,12 @@ canvas {
   mix-blend-mode: screen;
 }
 
+/* Particle canvas must render with normal blending so cyan/white particles
+   are crisp and not washed out by the global screen-mode rule above. */
+canvas.particle-canvas {
+  mix-blend-mode: normal;
+}
+
 #galaxy-bg {
   position: fixed;
   inset: 0;
@@ -131,7 +137,7 @@ body {
     backdrop-filter: blur(6px) saturate(120%);
     -webkit-backdrop-filter: blur(6px) saturate(120%);
     box-shadow: 0 0 14px rgba(0, 180, 255, 0.12);
-    border-color: rgba(0, 255, 255, 0.18) !important;
+    border-color: rgba(0, 255, 255, 0.344) !important;
   }
   /* Turn off large glow shadows on mobile boxes/buttons */
   .soft-glow,
@@ -146,7 +152,6 @@ section[id] {
   content-visibility: auto;
   contain-intrinsic-size: 1000px; /* reserved height to prevent jumps */
 }
-
 
 .glow-text {
   text-shadow:

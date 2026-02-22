@@ -4,8 +4,8 @@ const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 
 export default function About() {
   return (
-    <section id="about" className="px-10 lg:px-24 py-24 scroll-mt-20">
-      <div className="md:w-3/5 min-h-screen flex flex-col space-y-8 font-grotesk text-gray-300 text-lg leading-relaxed">
+    <section id="about" className="px-10 lg:px-24 py-12 scroll-mt-20">
+      <div className="md:w-3/5 flex flex-col space-y-8 font-grotesk text-gray-300 text-lg leading-relaxed">
 
         <motion.h2
           initial={{ opacity: 0, scale: 0.9, y: 40 }}

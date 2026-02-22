@@ -90,6 +90,7 @@ function TeleportEffects() {
  * ensures the old one fully exits before the new one enters).
  * ───────────────────────────────────────────────────────────────── */
 export default function FloatingSphere() {
+  const isMobile = window.innerWidth < 768;
   const [phase, setPhase] = useState("hero"); // "hero" | "mini"
 
   // Compute start geometry once on mount from viewport dimensions
@@ -115,8 +116,9 @@ export default function FloatingSphere() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (v) => {
+    if (isMobile) return; // mobile always stays mini — no phase switching
     const now = Date.now();
-    if (now - cooldown.current < COOLDOWN) return; // animation still running — ignore
+    if (now - cooldown.current < COOLDOWN) return;
 
     const cur = phaseRef.current;
     let next = cur;
@@ -131,6 +133,23 @@ export default function FloatingSphere() {
   });
 
   const fixed = { position: "fixed", zIndex: 50, pointerEvents: "none" };
+
+  // On mobile, always render mini at top-right — no hero phase
+  if (isMobile) {
+    return (
+      <motion.div
+        key="mini-mobile"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={IN_ANIMATE}
+        transition={IN_TRANSITION}
+        style={{ ...fixed, top: 8, right: 8, width: 72, height: 72 }}
+      >
+        <div style={{ width: "100%", height: "100%" }}>
+          <Suspense fallback={null}><Tesseract /></Suspense>
+        </div>
+      </motion.div>
+    );
+  }
 
   return (
     <AnimatePresence mode="wait">

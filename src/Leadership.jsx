@@ -24,7 +24,7 @@ export default function Leadership() {
   return (
     <section
       id="leadership"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-transparent scroll-mt-20"
+      className="flex flex-col items-center justify-center px-6 py-12 bg-transparent scroll-mt-20"
     >
       <motion.h2
         initial={{ opacity: 0, scale: 0.9, y: 40 }}

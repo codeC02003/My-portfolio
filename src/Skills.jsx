@@ -43,7 +43,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 relative scroll-mt-20"
+      className="flex flex-col items-center justify-center px-6 py-12 relative scroll-mt-20"
     >
 
       {/* Section Title */}
