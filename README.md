@@ -4,7 +4,7 @@
 
 ### Full-Stack Developer · MS Computer Science @ University of Arizona
 
-[![Live Site](https://img.shields.io/badge/🌐_Live_Site-chinmaymhatre.vercel.app-00f5ff?style=for-the-badge&labelColor=0a0a0a)](https://chinmaymhatre.vercel.app)
+[![Live Site](https://img.shields.io/badge/🌐_Live_Site-chinmaymhatre.vercel.app-00f5ff?style=for-the-badge&labelColor=0a0a0a)](https://my-portfolio-mu-ten-24.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Chinmay_Mhatre-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chinmay-mhatre-857825193/)
 [![GitHub](https://img.shields.io/badge/GitHub-codeC02003-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codeC02003)
 [![Email](https://img.shields.io/badge/Email-Contact_Me-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:chinmaymhatre02003@gmail.com)
@@ -125,7 +125,7 @@ npm run preview
 
 **Chinmay Mhatre** · Full-Stack Developer · Arizona, USA
 
-[Live Site](https://chinmaymhatre.vercel.app) · [LinkedIn](https://www.linkedin.com/in/chinmay-mhatre-857825193/) · [GitHub](https://github.com/codeC02003) · [Email](mailto:chinmaymhatre02003@gmail.com)
+[Live Site](https://my-portfolio-mu-ten-24.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/chinmay-mhatre-857825193/) · [GitHub](https://github.com/codeC02003) · [Email](mailto:chinmaymhatre02003@gmail.com)
 
 *Built with React + Vite · Deployed on Vercel*
 
