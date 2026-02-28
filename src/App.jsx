@@ -9,6 +9,7 @@ import Leadership from "./Leadership";
 import Contact from "./Contact";
 import Education from "./Education";
 import DisintegrationWrapper from "./DisintegrationWrapper";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function App() {
   return (

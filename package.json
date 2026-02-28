@@ -13,6 +13,7 @@
     "@react-three/drei": "^9.89.1",
     "@react-three/fiber": "^8.13.6",
     "@react-three/postprocessing": "^2.16.0",
+    "@vercel/analytics": "^1.6.1",
     "bootstrap": "^5.3.8",
     "framer-motion": "^10.18.0",
     "html2canvas": "^1.4.1",
