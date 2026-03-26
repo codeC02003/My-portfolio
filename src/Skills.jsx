@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaCloud, FaCode } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaCloud, FaCode, FaDocker } from "react-icons/fa";
 import {
   SiCplusplus, SiJavascript, SiPhp, SiMysql,
-  SiHtml5, SiCss3, SiFigma, SiAdobeillustrator, SiTensorflow
+  SiHtml5, SiCss3, SiFigma, SiAdobeillustrator, SiTensorflow,
+  SiFastapi, SiHuggingface
 } from "react-icons/si";
 
 export default function Skills() {
@@ -22,8 +23,11 @@ export default function Skills() {
       skills: [
         { icon: <FaReact color="#61DAFB" />, name: "React" },
         { icon: <FaNodeJs color="#68A063" />, name: "Node.js" },
+        { icon: <SiFastapi color="#009688" />, name: "FastAPI" },
         { icon: <SiTensorflow color="#FF6F00" />, name: "TensorFlow" },
+        { icon: <SiHuggingface color="#FFD21E" />, name: "Hugging Face" },
         { icon: <FaGitAlt color="#F1502F" />, name: "Git" },
+        { icon: <FaDocker color="#2496ED" />, name: "Docker" },
         { icon: <FaCode color="#00CFFF" />, name: "OpenSim" },
       ],
     },
@@ -42,6 +46,8 @@ export default function Skills() {
         { icon: <SiFigma color="#F24E1E" />, name: "Figma" },
         { icon: <SiAdobeillustrator color="#FF9A00" />, name: "Adobe Illustrator" },
         { icon: <FaCloud color="#00BFFF" />, name: "Cloud Computing" },
+        { icon: <FaCode color="#00CFFF" />, name: "NLP / RAG" },
+        { icon: <FaCode color="#00CFFF" />, name: "FAISS" },
         { icon: <FaCode color="#00CFFF" />, name: "IoT Systems" },
       ],
     },

@@ -5,6 +5,17 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: "FinRAG – Multimodal Financial Document QA System",
+      date: "Mar 2026",
+      short: "Built a production-ready RAG system achieving 94–100% accuracy on real 10-K filings using hybrid retrieval, dynamic table extraction, and vision-language models.",
+      tags: ["Python", "FastAPI", "React", "FAISS", "Qwen2-VL", "RoBERTa", "Docker"],
+      problem: "Financial professionals spend hours manually extracting data from lengthy 10-K filings and annual reports. Generic LLMs hallucinate numbers, and traditional RAG systems fail on complex financial tables with multi-year columns.",
+      role: "Sole developer — designed and built the entire end-to-end system: hybrid retrieval pipeline (BM25 + FAISS + cross-encoder reranking), dynamic table discovery engine, multi-model QA routing (table extraction, extractive QA, vision-language), and a React chat interface with PDF upload and markdown rendering.",
+      solution: "Engineered a multi-stage pipeline: documents are chunked with sentence-aware splitting and indexed into both Whoosh (BM25) and FAISS (semantic). Retrieval merges results via Reciprocal Rank Fusion and cross-encoder reranking. Answers are routed through table extraction (instant for numeric lookups), RoBERTa-SQuAD2 (extractive spans), or Qwen2-VL-2B (vision-language reasoning) — selecting the highest-confidence, non-hallucinated response.",
+      outcome: "Achieved 100% accuracy on Tandy Leather, Aaron's Holdings, and Materion Corp 10-Ks, and 94% on Apple's 10-K. Table lookups return in ~50ms with zero hallucination. Deployed on Hugging Face Spaces (backend) and Vercel (frontend) with Docker support.",
+    },
+    {
+      id: 2,
       title: "Gait Analysis Using Inertial Measurement Unit Sensors and Machine Learning",
       date: "Jan 2024 – Jan 2025",
       short: "Led an interdisciplinary team to design a real-time gait analysis system using IMU sensors via Raspberry Pi.",
@@ -15,7 +26,7 @@ export default function Projects() {
       outcome: "Achieved over 92% accuracy in gait event detection and abnormality classification. Improved gait assessment consistency by 30% through hospital-based validation with physiotherapists, enabling data-driven rehabilitation tracking.",
     },
     {
-      id: 2,
+      id: 3,
       title: "WeConnect – Non-Governmental Organization Collaboration Platform",
       date: "Jan – Apr 2024",
       short: "Engineered a scalable global platform enabling NGOs and social enterprises to collaborate on social and environmental projects.",
@@ -26,7 +37,7 @@ export default function Projects() {
       outcome: "Improved system scalability and data retrieval speed by 40% through optimized MySQL queries and modular architecture. Delivered a fully functional prototype ready for real-world deployment.",
     },
     {
-      id: 3,
+      id: 4,
       title: "Ticket Booking Website",
       date: "Jan – Apr 2023",
       short: "Designed and deployed a dynamic event management web application used by multiple college councils.",
