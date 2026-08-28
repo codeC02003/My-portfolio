@@ -2,7 +2,7 @@
 
 # ✦ Chinmay Mhatre — Portfolio ✦
 
-### Full-Stack Developer · MS Computer Science @ University of Arizona
+### Software Engineer · AI/ML Researcher · MS Computer Science @ University of Arizona
 
 [![Live Site](https://img.shields.io/badge/🌐_Live_Site-chinmaymhatre.vercel.app-00f5ff?style=for-the-badge&labelColor=0a0a0a)](https://my-portfolio-mu-ten-24.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Chinmay_Mhatre-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chinmay-mhatre-857825193/)
@@ -63,6 +63,7 @@ src/
 ├── About.jsx                 # About me — background, philosophy, interests
 ├── Education.jsx             # Education timeline cards
 ├── Skills.jsx                # Skill categories with icons
+├── Research.jsx              # Research experience cards (VLM research, gait analysis)
 ├── SelectedWork.jsx          # Interactive project showcase panel
 ├── Leadership.jsx            # Leadership & teamwork highlights
 ├── Contact.jsx               # Contact form + social links
@@ -85,6 +86,10 @@ cd My-portfolio
 # Install dependencies
 npm install
 
+# Configure the contact form (free key from https://web3forms.com)
+cp .env.example .env.local
+# then edit .env.local and set WEB3FORMS_KEY
+
 # Start dev server
 npm run dev
 
@@ -101,13 +106,14 @@ npm run preview
 
 | Section | Highlights |
 |---|---|
-| **Hero** | Name, title, location · CTA buttons — GitHub, LinkedIn, Email, Resume |
+| **Hero** | Name, title, location · CTA buttons — GitHub, LinkedIn, Email |
 | **About** | Background story, tech philosophy, personal interests |
-| **Education** | MS CS @ University of Arizona · BE IT @ K.J. Somaiya College of Engineering |
-| **Skills** | C++, Python, JavaScript / React, Node.js, Tailwind CSS / Docker, AWS, Git / Figma, Canva |
-| **Projects** | Gait Analysis (IoT + ML) · WeConnect (NGO platform) · Ticket Booking System |
+| **Education** | MS CS @ University of Arizona · B.Tech IT @ K.J. Somaiya School of Engineering |
+| **Skills** | Languages · AI/ML · Web Development · Databases & Retrieval · Tools & Platforms |
+| **Research** | Graduate Researcher, [D-REP Lab](https://d-rep.org/) @ UArizona — chart understanding with VLMs · Gait Analysis (IMU + ML) |
+| **Projects** | Boolean IR Engine (sharding + parallelization) · FinRAG (multimodal document QA) |
 | **Leadership** | KJSCE Insignia Art Team Head · Codecell Creative Member |
-| **Contact** | Email form + all social links |
+| **Contact** | Working contact form (Web3Forms) + all social links |
 
 ---
 
@@ -123,7 +129,7 @@ npm run preview
 
 <div align="center">
 
-**Chinmay Mhatre** · Full-Stack Developer · Arizona, USA
+**Chinmay Mhatre** · Software Engineer & AI/ML Researcher · Arizona, USA
 
 [Live Site](https://my-portfolio-mu-ten-24.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/chinmay-mhatre-857825193/) · [GitHub](https://github.com/codeC02003) · [Email](mailto:chinmaymhatre02003@gmail.com)
 

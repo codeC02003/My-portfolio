@@ -1,54 +1,80 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import SectionHeading from "./SectionHeading";
 
 const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Vercel defines this as WEB3FORMS_KEY; .env.local uses the VITE_ form.
+    // Either is accepted so both environments work without a rename.
+    const accessKey =
+      import.meta.env.WEB3FORMS_KEY || import.meta.env.VITE_WEB3FORMS_KEY;
+    if (!accessKey) {
+      console.error(
+        "Missing WEB3FORMS_KEY. Set it in .env.local and in your Vercel project's environment variables."
+      );
+      setFormStatus("error");
+      return;
+    }
+
+    const form = e.target;
+    const formData = new FormData(form);
+    formData.append("access_key", accessKey);
+    formData.append("from_name", "Portfolio Contact Form");
+    if (!formData.get("subject")) {
+      formData.set(
+        "subject",
+        `Portfolio message from ${formData.get("name") || "a visitor"}`
+      );
+    }
+
     setFormStatus("sending");
-    setTimeout(() => {
-      setFormStatus("success");
-    }, 1500);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setFormStatus("success");
+        form.reset();
+      } else {
+        console.error("Web3Forms error:", data);
+        setFormStatus("error");
+      }
+    } catch (err) {
+      console.error("Contact form submission failed:", err);
+      setFormStatus("error");
+    }
   };
 
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-24 py-24 bg-transparent text-white scroll-mt-20"
+      className="flex flex-col items-center px-6 lg:px-10 py-24 bg-transparent text-white scroll-mt-20"
     >
-      <motion.h2
-        initial={{ opacity: 0, scale: 0.9, y: 40 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        viewport={{ once: false, margin: "-80px" }}
-        transition={SPRING}
-        className="text-5xl font-abolition mb-6 text-cyan-400 text-center glow-text"
-      >
-        Let&apos;s Build Something Great Together
-      </motion.h2>
+      <div className="w-full max-w-6xl">
+      <SectionHeading
+        index="07 / CONTACT"
+        title="Say Hello"
+        accent="If you're working on something interesting, or you're hiring, or you just want to argue about charts and language models, send me a message."
+      />
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "-60px" }}
-        transition={{ ...SPRING, delay: 0.1 }}
-        className="text-gray-300 max-w-2xl text-center mb-16 font-grotesk text-lg leading-relaxed"
-      >
-        Whether you&apos;re looking to collaborate on a project, discuss a research idea, or
-        explore opportunities in AI and software engineering, I&apos;d love to hear from you.
-      </motion.p>
-
-      <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10">
+      <div className="w-full grid md:grid-cols-2 gap-8">
         <motion.div
           initial={{ opacity: 0, x: -50, scale: 0.95 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: false, margin: "-60px" }}
           transition={SPRING}
-          className="rounded-2xl p-10 transition-all duration-300 ease-out flex-1 bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)] hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
-         hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
+          className="panel panel-corner p-10"
         >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Get in Touch</h3>
 
@@ -97,46 +123,61 @@ export default function Contact() {
           viewport={{ once: false, margin: "-60px" }}
           transition={{ ...SPRING, delay: 0.1 }}
           onSubmit={handleSubmit}
-          className="bg-[rgba(0,255,255,0.03)] border border-[rgba(0,255,255,0.15)]
-                     rounded-2xl p-10 transition-all duration-300 ease-out hover:border-cyan-400 hover:bg-[rgba(0,255,255,0.1)]
-                     hover:shadow-[0_0_25px_rgba(0,255,255,0.5)]"
+          className="panel panel-corner p-10"
         >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Send a Message</h3>
 
             <div className="flex flex-col space-y-5">
+              {/* Honeypot, hidden from users, catches bots */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
-                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg 
+                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg
                            focus:outline-none focus:border-[rgba(0,255,255,0.9)] text-white font-regular font-grotesk"
                 required
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
-                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg 
+                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg
                            focus:outline-none focus:border-[rgba(0,255,255,0.9)] text-white font-regular font-grotesk"
                 required
               />
               <input
                 type="text"
+                name="subject"
                 placeholder="Subject"
-                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg 
+                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg
                            focus:outline-none focus:border-[rgba(0,255,255,0.9)] text-white font-regular font-grotesk"
               />
               <textarea
+                name="message"
                 placeholder="Your Message"
                 rows="5"
-                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg 
+                className="px-5 py-3 bg-transparent border border-[rgba(0,255,255,0.3)] rounded-lg
                            focus:outline-none focus:border-[rgba(0,255,255,0.9)] text-white resize-none font-regular font-grotesk"
                 required
               ></textarea>
 
               <button
                 type="submit"
-                className="mt-4 px-8 py-3 bg-cyan-500/20 border border-cyan-400 
+                disabled={formStatus === "sending"}
+                className="mt-4 px-8 py-3 bg-cyan-500/20 border border-cyan-400
                            text-cyan-300 rounded-full font-semibold transition-all
-                           hover:bg-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,255,255,0.6)]"
+                           hover:bg-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,255,255,0.6)]
+                           disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-cyan-500/20
+                           disabled:hover:shadow-none"
               >
                 {formStatus === "sending"
                   ? "Sending..."
@@ -144,15 +185,34 @@ export default function Contact() {
                   ? "Message Sent!"
                   : "Send Message"}
               </button>
+
+              {formStatus === "success" && (
+                <p className="text-cyan-300 text-sm font-grotesk text-center" role="status">
+                  Thanks for reaching out. I&apos;ll get back to you soon.
+                </p>
+              )}
+              {formStatus === "error" && (
+                <p className="text-red-400 text-sm font-grotesk text-center" role="alert">
+                  That didn&apos;t send. You can email me directly at{" "}
+                  <a
+                    href="mailto:chinmaymhatre02003@gmail.com"
+                    className="underline hover:text-red-300"
+                  >
+                    chinmaymhatre02003@gmail.com
+                  </a>
+                  .
+                </p>
+              )}
             </div>
         </motion.form>
       </div>
 
+      </div>
+
       {/* Call-to-Action */}
         <p className="mt-20 text-gray-400 text-center text-lg font-grotesk">
-          Currently open to <span className="text-cyan-400 font-semibold">
-          internships, research collaborations</span>, and software development roles.  
-          Let’s make something impactful together.
+          I&apos;m open to <span className="text-cyan-400 font-semibold">
+          internships, research collaborations</span> and software roles right now.
         </p>
      </section>
   );

@@ -4,6 +4,7 @@ import ParticleCanvas from "./ParticleCanvas";
 import Hero from "./Hero";
 import About from "./About";
 import Skills from "./Skills";
+import Research from "./Research";
 import SelectedWork from "./SelectedWork";
 import Leadership from "./Leadership";
 import Contact from "./Contact";
@@ -27,6 +28,7 @@ export default function App() {
         <DisintegrationWrapper><About /></DisintegrationWrapper>
         <DisintegrationWrapper><Education /></DisintegrationWrapper>
         <DisintegrationWrapper><Skills /></DisintegrationWrapper>
+        <DisintegrationWrapper><Research /></DisintegrationWrapper>
         <DisintegrationWrapper><SelectedWork /></DisintegrationWrapper>
         <DisintegrationWrapper><Leadership /></DisintegrationWrapper>
         <DisintegrationWrapper><Contact /></DisintegrationWrapper>

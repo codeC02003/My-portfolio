@@ -1,70 +1,51 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 const SPRING = { type: "spring", stiffness: 70, damping: 20 };
 
 export default function About() {
   return (
     <section id="about" className="px-10 lg:px-24 py-12 scroll-mt-20">
-      <div className="md:w-3/5 flex flex-col space-y-8 font-grotesk text-gray-300 text-lg leading-relaxed">
+      <div className="md:w-3/5 flex flex-col space-y-6 font-grotesk text-gray-300 text-lg leading-relaxed">
 
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9, y: 40 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: false, margin: "-80px" }}
-          transition={SPRING}
-          className="text-5xl font-abolition text-cyan-400"
-        >
-          <span className="inline-block w-fit leading-none glow-text">About Me</span>
-        </motion.h2>
+        <SectionHeading index="01 / PROFILE" title="About Me" />
 
         {[
           <>
-            I&apos;m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>, an
-            innovative and adaptable Computer Science graduate student at the University of Arizona,
-            with a robust background in{" "}
+            I&apos;m <span className="text-cyan-400 font-semibold">Chinmay Mhatre</span>. I&apos;m
+            doing my Master&apos;s in Computer Science at the University of Arizona, and most of
+            what I work on sits where software engineering meets machine learning and data
+            visualization.
+          </>,
+          <>
+            I like building things end to end. Usually that means a backend, a model somewhere in
+            the middle, and an interface someone can actually use. Lately that&apos;s been
+            retrieval systems, explainable AI dashboards, and a few data-heavy web apps. Day to
+            day I&apos;m in Python, C++, TypeScript, PyTorch, FastAPI and React.
+          </>,
+          <>
+            Right now I&apos;m a graduate researcher in the{" "}
+            <span className="text-cyan-400 font-semibold">D-REP Lab</span> under Professor Takanori
+            Fujiwara, looking at how vision-language models read charts. Asking a model what a graph
+            says turns out to be much harder than it sounds.
+          </>,
+          <>
+            Before that I led a team of three on a gait analysis project, putting IMU sensors on
+            people and training models to pick out abnormal walking patterns. We got past{" "}
+            <span className="text-cyan-400 font-semibold">92% accuracy</span> on gait event
+            detection, and testing it in a hospital alongside physiotherapists improved assessment
+            consistency by about 30%.
+          </>,
+          <>
+            Away from code I care about design. I spend time in Figma and Illustrator, and I&apos;m
+            interested in why one interface feels obvious and another doesn&apos;t.
+          </>,
+          <>
+            I&apos;m looking for work in{" "}
             <span className="text-cyan-400 font-semibold">
-              software development, data structures &amp; algorithms, object-oriented programming,
-              databases, and artificial intelligence
+              software engineering, AI and machine learning, or applied research
             </span>
-            . I love designing technologies that blend precision with creativity.
-          </>,
-          <>
-            My technical work spans{" "}
-            <span className="text-cyan-400 font-semibold">
-              AI, Machine Learning, full-stack web development, and IoT systems
-            </span>
-            . I&apos;ve built solutions in{" "}
-            <span className="text-cyan-400 font-semibold">Python, C++, JavaScript, PHP, and SQL</span>{" "}
-            using frameworks like{" "}
-            <span className="text-cyan-400 font-semibold">React, Node.js, and TensorFlow</span>,
-            alongside hands-on experience with{" "}
-            <span className="text-cyan-400 font-semibold">MEMS sensors, REST APIs, and cloud computing</span>.
-          </>,
-          <>
-            I have demonstrated{" "}
-            <span className="text-cyan-400 font-semibold">
-              leadership and project management skills
-            </span>{" "}
-            through successful development of dynamic web platforms and a sophisticated gait analysis
-            system utilizing Inertial Measurement Unit sensors — achieving over{" "}
-            <span className="text-cyan-400 font-semibold">92% accuracy</span> in real-time gait
-            event detection validated with hospital physiotherapists.
-          </>,
-          <>
-            Outside of code, I&apos;m driven by{" "}
-            <span className="text-cyan-400 font-semibold">design, innovation, and curiosity</span>.
-            I love exploring UI/UX, creating digital art with Figma and Adobe Illustrator, and
-            understanding how human behavior shapes technology. Known for blending{" "}
-            <span className="text-cyan-400 font-semibold">creative vision with technical expertise</span>{" "}
-            in both individual and collaborative settings.
-          </>,
-          <>
-            I&apos;m currently seeking a{" "}
-            <span className="text-cyan-400 font-semibold">
-              challenging internship in Computer Science — particularly in AI &amp; ML
-            </span>
-            . Feel free to explore my projects and connect — I&apos;d love to collaborate on
-            something impactful.
+            . If you&apos;re building something interesting, I&apos;d like to hear about it.
           </>,
         ].map((para, i) => (
           <motion.p

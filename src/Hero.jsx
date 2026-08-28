@@ -33,7 +33,7 @@ export default function Hero() {
                  scroll-mt-20 px-4 lg:px-10 xl:px-14 py-6"
     >
 
-      {/* ── Glassmorphism card — left column ──────────────────────── */}
+      {/* ── Glassmorphism card, left column ───────────────────────── */}
       <motion.div
         style={{ opacity: cardOpacity, y: cardY }}
         className="relative z-10 w-full lg:max-w-[58%]"
@@ -97,7 +97,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="text-cyan-300 text-xl lg:text-2xl font-semibold font-grotesk mt-3 select-none"
           >
-            CS Grad Student · AI &amp; ML Enthusiast
+            CS Grad Student · AI &amp; ML Research
           </motion.p>
 
           {/* Divider */}
@@ -129,10 +129,11 @@ export default function Hero() {
             transition={{ delay: 0.58 }}
             className="text-gray-300/85 font-grotesk text-base leading-relaxed mb-4 select-none"
           >
-            Innovative CS grad student with a strong background in software
-            development, AI, and full-stack engineering. Seeking internships in{" "}
+            CS grad student at the University of Arizona. I build systems end to end, and
+            I&apos;m currently researching how vision-language models read charts. Looking for
+            internships in{" "}
             <span className="text-cyan-400 font-semibold">
-              AI, ML, or Software Engineering
+              AI, ML or software engineering
             </span>
             .
           </motion.p>
