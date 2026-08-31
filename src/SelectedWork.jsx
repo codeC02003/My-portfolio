@@ -7,6 +7,32 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: "UReco: A Music Recommender That Reads Why You Skipped",
+      date: "Aug 2026",
+      short:
+        "Separates \u201cI hate this song\u201d from \u201cI love this song, wrong moment.\u201d Eight audio axes measured off the waveform, no ratings, no API keys, 74 tests.",
+      tags: [
+        "Python 3.12",
+        "librosa",
+        "FastAPI",
+        "Deezer API",
+        "Audio DSP",
+        "pytest",
+      ],
+      links: [
+        { label: "GitHub", url: "https://github.com/codeC02003/UReco", icon: "github" },
+      ],
+      problem:
+        "Every recommender knows that you skipped a track. Almost none know why, so they collapse two opposite facts into the same thumbs down: \u201cI hate this song\u201d and \u201cI love this song, it's wrong for right now.\u201d Conflating those is why skipping a favourite once can bury it for months. There's also no longer an API to ask. Spotify pulled /audio-features, /audio-analysis and /recommendations for all new applications in November 2024.",
+      role:
+        "Solo. The audio analysis, the skip interpretation, the ranking, the session and profile logic, the FastAPI server and the browser UI, plus 74 tests and two simulation harnesses. Also the part I'm more pleased with: the measurements that made me cut four features I'd already built.",
+      solution:
+        "Every number is computed from the waveform with librosa and reduced to eight axes a person can actually read: energy, tempo, pulse, density, brightness, roughness, dynamics and lift. Pulse reads 0.00 for a Chopin nocturne and 0.92 for a Calvin Harris single. There are no rating buttons anywhere; the only input is how long you stayed before moving on. A skip then gets read rather than counted, ordered by how much each signal really tells you: have you ever finished this track before, how far in did you get this time, did it match the mood you were already in, and are you skipping everything right now. The rule the whole design rests on is that a taste verdict never moves the mood and a mood verdict never damages an artist. The stored profile holds no track ID and no artist name, so a song dropped last Tuesday starts today with a clean slate.",
+      outcome:
+        "Against a pool where 25% of tracks would satisfy the listener by chance, 40.5% got played past the halfway bar. That's 1.6 times random across 12 seeds on a 297 track pool, climbing from roughly 10% at cold start to around 67% once it has a read. The second harness gave the more honest result: reading mood is worth about 5 points at session open at roughly 1.2 standard errors, which is suggestive rather than established. An oracle simply told which mood is live gains 33 points, so the information is enormously valuable and the detector currently delivers a fraction of it. Four features were measured and cut, including mood extrapolation, which costs 3 to 4 points even against a listener who genuinely drifts, and a linear model for listened ratio that cross validated at an R squared of exactly 0.000.",
+    },
+    {
+      id: 2,
       title: "Hold My Place: Stockout Recovery and Unit Economics",
       date: "Aug 2026",
       short:
@@ -31,7 +57,7 @@ export default function Projects() {
         "Promises kept on 96 to 99% of settled claims across eight seeds, holding from 45 days out to 240. The sourcing ladder mattered more than the queue I set out to build: switch it off and the share of customers who got what they ordered drops from 42.3% to 31.6%, while refunds climb from $24,411 to $30,159. Reserving 15% of each delivery for the queue reaches 97% promise-keeping and costs 91 units against 40,289 that went to the shelf. The cost model also killed a feature. Free delivery loses $1.19 a stop on merchandise margin and only clears once you count membership renewal, needing 0.153pp of lift to break even. That makes it a retention play rather than a fulfillment one, and any team measuring cost-per-stop would rightly reject it.",
     },
     {
-      id: 2,
+      id: 3,
       title: "Query Optimization via Sharding and Parallelization",
       date: "May 2026",
       short:
@@ -57,7 +83,26 @@ export default function Projects() {
         "Index builds came out 3.58x faster using 67% less memory per worker across four shards. The tail-join merge cut query latency 67% and raised throughput 32% on complex multi-operator queries. All of it verified through a four-tier end-to-end suite.",
     },
     {
-      id: 3,
+      id: 4,
+      title: "GeoGrad: Geospatial Decision Support for Choosing a Master's Program",
+      date: "Apr to May 2026",
+      short:
+        "Seven linked views over 2,095 US institutions and five public datasets, so choosing a graduate program is something you can reason about rather than guess at.",
+      tags: ["React 18", "D3.js v7", "Leaflet", "GeoJSON", "IPEDS", "React Context"],
+      links: [
+        { label: "GitHub", url: "https://github.com/codeC02003/GeoGrad", icon: "github" },
+      ],
+      problem:
+        "Picking a Master's program means weighing tuition, admission and graduation rates, rankings, cost of living, safety and climate all at once, and each of those lives somewhere else in a different format. Most people end up comparing a handful of schools in a spreadsheet and never see the shape of the whole field.",
+      role:
+        "Solo. Merged five public datasets into one model covering 2,095 four-year institutions across all 50 states and DC, then built every view: the choropleth, the state drill-down, the scatter plot, the parallel coordinates, the radar chart and both comparison panels, along with the shared state that keeps them in sync.",
+      solution:
+        "Seven linked views over one dataset, coordinated through React Context so a filter set anywhere propagates everywhere at once. The national choropleth carries four switchable state metrics with a university overlay that is filter-aware, so cluster counts reflect only what currently matches instead of the full set. Parallel coordinates give seven axes with draggable reordering and brushing, the scatter plot gives eight selectable axes for bivariate exploration, and the radar chart normalizes its seven dimensions against all 2,095 institutions rather than against the current selection, so a comparison means the same thing whatever you have filtered down to. Distance between a dropped pin and any compared university uses the Haversine formula.",
+      outcome:
+        "2,095 institutions from IPEDS 2023/24, Scimago rankings fuzzy matched to them at an 82% threshold, plus state level cost of living, FBI hate crime figures as a safety proxy, and NOAA climate normals. Ten metrics in the state comparison panel and nine in the university one, both with direction-aware best value highlighting, since lower is better for tuition while higher is better for graduation rate.",
+    },
+    {
+      id: 5,
       title: "FinRAG: Question Answering over Financial Documents",
       date: "Jan 2026",
       short:
@@ -85,7 +130,7 @@ export default function Projects() {
         "100% on the Tandy Leather, Aaron's Holdings and Materion filings, and 94% on Apple's. Table lookups come back in around 50ms with no hallucination. The chat interface keeps conversation history, suggests follow-ups and shows you the source page. Deployed on Hugging Face Spaces in Docker.",
     },
     {
-      id: 4,
+      id: 6,
       title: "WeConnect: A Collaboration Platform for NGOs",
       date: "Jan to Apr 2024",
       short:
@@ -102,7 +147,7 @@ export default function Projects() {
         "Reworking the MySQL queries and the module structure made data retrieval about 40% faster. It ended up a complete working prototype.",
     },
     {
-      id: 5,
+      id: 7,
       title: "Ticket Booking Website",
       date: "Jan to Apr 2023",
       short:
@@ -134,7 +179,7 @@ export default function Projects() {
         <SectionHeading
           index="05 / SELECTED WORK"
           title="Projects"
-          accent="Five things I built, newest first. Each one says what the problem was and what the numbers said afterwards."
+          accent="Seven things I built, newest first. Each one says what the problem was and what the numbers said afterwards."
         />
 
         <div className="flex flex-col lg:flex-row items-start gap-8">
