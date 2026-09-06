@@ -1,5 +1,6 @@
-import { lazy, Suspense, useState, useMemo, useRef } from "react";
+import { lazy, Suspense, useState, useMemo, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { registerSink, unregisterSink } from "./particleStore";
 
 const Tesseract = lazy(() => import("./Tesseract"));
 
@@ -85,6 +86,56 @@ function TeleportEffects() {
 }
 
 /* ─────────────────────────────────────────────────────────────────
+ * DragHint
+ * A one-off nudge under the mini atom telling people it can be moved.
+ * Mounts with the mini atom, so the timer starts when it actually appears
+ * rather than at page load. Module-level flag keeps it to the first time in
+ * a session: repeating it on every teleport would nag.
+ * ───────────────────────────────────────────────────────────────── */
+let hintUsed = false;
+
+function DragHint() {
+  const [show, setShow] = useState(!hintUsed);
+
+  useEffect(() => {
+    if (!show) return;
+    hintUsed = true;
+    const t = setTimeout(() => setShow(false), 4200);
+    return () => clearTimeout(t);
+  }, [show]);
+
+  if (!show) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -3 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.45 }}
+      style={{
+        position:      "absolute",
+        top:           "100%",
+        // Anchored to the atom's right edge, not centred under it. The atom
+        // rests 8-16px from the viewport edge, so a centred label runs off
+        // screen and gets clipped to "DRAG M". Growing inward keeps it whole
+        // both at rest and wherever it gets dragged.
+        right:         0,
+        marginTop:     -2,
+        whiteSpace:    "nowrap",
+        pointerEvents: "none",
+        fontFamily:    "var(--font-grotesk, sans-serif)",
+        fontSize:      9,
+        letterSpacing: "0.14em",
+        textTransform: "uppercase",
+        color:         "rgba(103, 232, 249, 0.8)",
+        textShadow:    "0 0 10px rgba(0,190,255,0.55)",
+      }}
+    >
+      drag me
+    </motion.div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────
  * FloatingSphere — the single source of truth for the Tesseract.
  * Only ONE canvas is ever mounted at a time (AnimatePresence mode="wait"
  * ensures the old one fully exits before the new one enters).
@@ -134,19 +185,66 @@ export default function FloatingSphere() {
 
   const fixed = { position: "fixed", zIndex: 50, pointerEvents: "none" };
 
+  /* Whichever atom is mounted becomes the target the disintegration embers
+   * fly toward. particleStore reads this element's centre every frame, so a
+   * dragged atom drags the whole stream along with it. */
+  const mounted = useRef(null);
+  const sinkRef = useCallback((el) => {
+    if (el) {
+      registerSink(el);
+      mounted.current = el;
+    } else if (mounted.current) {
+      unregisterSink(mounted.current);
+      mounted.current = null;
+    }
+  }, []);
+
+  /* Let the mini atom be thrown anywhere on screen, but not off it. Framer's
+   * constraints are offsets from the element's laid-out position. */
+  const dragBounds = useMemo(() => {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const size = isMobile ? 72 : 120;
+    const inset = isMobile ? 8 : 16;
+    return {
+      left:   -(vw - size - inset * 2),
+      right:  inset,
+      top:    -inset,
+      bottom: vh - size - inset * 2,
+    };
+  }, [isMobile]);
+
+  const dragProps = {
+    drag: true,
+    dragConstraints: dragBounds,
+    dragMomentum: false,
+    dragElastic: 0.06,
+    whileDrag: { scale: 1.12 },
+  };
+
+  // Overrides the shared pointerEvents:"none" so the atom can be grabbed.
+  const grabbable = {
+    pointerEvents: "auto",
+    cursor: "grab",
+    touchAction: "none",
+  };
+
   // On mobile, always render mini at top-right — no hero phase
   if (isMobile) {
     return (
       <motion.div
         key="mini-mobile"
+        ref={sinkRef}
         initial={{ scale: 0, opacity: 0 }}
         animate={IN_ANIMATE}
         transition={IN_TRANSITION}
-        style={{ ...fixed, top: 8, right: 8, width: 72, height: 72 }}
+        {...dragProps}
+        style={{ ...fixed, ...grabbable, top: 8, right: 8, width: 72, height: 72 }}
       >
-        <div style={{ width: "100%", height: "100%" }}>
+        <div style={{ width: "100%", height: "100%", pointerEvents: "none" }}>
           <Suspense fallback={null}><Tesseract /></Suspense>
         </div>
+        <DragHint />
       </motion.div>
     );
   }
@@ -156,6 +254,7 @@ export default function FloatingSphere() {
       {phase === "hero" ? (
         <motion.div
           key="hero"
+          ref={sinkRef}
           initial={{ scale: 0, opacity: 0 }}
           animate={IN_ANIMATE}
           transition={IN_TRANSITION}
@@ -170,16 +269,21 @@ export default function FloatingSphere() {
       ) : (
         <motion.div
           key="mini"
+          ref={sinkRef}
           initial={{ scale: 0, opacity: 0 }}
           animate={IN_ANIMATE}
           transition={IN_TRANSITION}
           exit={OUT_ANIMATE}
-          style={{ ...fixed, top: 16, right: 16, width: 120, height: 120 }}
+          {...dragProps}
+          style={{ ...fixed, ...grabbable, top: 16, right: 16, width: 120, height: 120 }}
         >
-          <div style={{ width: "100%", height: "100%" }}>
+          {/* pointerEvents off inside, so the drag is never stolen by the
+              canvas and the whole 120px square stays grabbable. */}
+          <div style={{ width: "100%", height: "100%", pointerEvents: "none" }}>
             <Suspense fallback={null}><Tesseract /></Suspense>
           </div>
           <TeleportEffects />
+          <DragHint />
         </motion.div>
       )}
     </AnimatePresence>

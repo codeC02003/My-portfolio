@@ -130,7 +130,7 @@ export default function Hero() {
             className="text-gray-300/85 font-grotesk text-base leading-relaxed mb-4 select-none"
           >
             CS grad student at the University of Arizona. I build systems end to end, and
-            I&apos;m currently researching how vision-language models read charts. Looking for
+            I&apos;m currently researching multi-agent systems. Looking for
             internships in{" "}
             <span className="text-cyan-400 font-semibold">
               AI, ML or software engineering
@@ -180,11 +180,10 @@ export default function Hero() {
       {/* ── Explore button ───────────────────────────────────────────
           Fixed + CSS-owned transform so framer doesn't clobber the -50 %.  */}
       <div
+        className="explore-anchor"
         style={{
           position:      "fixed",
           bottom:        32,
-          left:          "calc(50vw + 50px)",
-          transform:     "translateX(-50%)",
           zIndex:        20,
           pointerEvents: exploreClickable ? "auto" : "none",
         }}

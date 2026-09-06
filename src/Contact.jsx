@@ -65,7 +65,7 @@ export default function Contact() {
       <SectionHeading
         index="07 / CONTACT"
         title="Say Hello"
-        accent="If you're working on something interesting, or you're hiring, or you just want to argue about charts and language models, send me a message."
+        accent="If you're working on something interesting, or you're hiring, or you just want to argue about multi-agent systems, send me a message."
       />
 
       <div className="w-full grid md:grid-cols-2 gap-8">
@@ -74,7 +74,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: false, margin: "-60px" }}
           transition={SPRING}
-          className="panel panel-corner p-10"
+          className="panel panel-corner p-6 md:p-10"
         >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Get in Touch</h3>
 
@@ -123,7 +123,7 @@ export default function Contact() {
           viewport={{ once: false, margin: "-60px" }}
           transition={{ ...SPRING, delay: 0.1 }}
           onSubmit={handleSubmit}
-          className="panel panel-corner p-10"
+          className="panel panel-corner p-6 md:p-10"
         >
             <h3 className="text-3xl font-semibold font-grotesk mb-8 text-cyan-400">Send a Message</h3>
 

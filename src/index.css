@@ -153,6 +153,20 @@ section[id] {
   contain-intrinsic-size: 1000px; /* reserved height to prevent jumps */
 }
 
+/* Explore chevron.
+   section[id] below sets content-visibility:auto, which implies contain:paint,
+   which makes the hero <section> the containing block for this position:fixed
+   element. So percentages here resolve against the section box, and that box
+   already excludes the 100px sidebar. 50% is therefore the centre of the
+   content column at every breakpoint.
+   The previous calc(50vw + 50px) double-counted the sidebar: it sat 100px
+   right of centre on desktop and 50px right on mobile, where no sidebar
+   exists at all. */
+.explore-anchor {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .glow-text {
   text-shadow:
     0 0 8px rgba(0, 255, 255, 0.6),

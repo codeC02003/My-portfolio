@@ -3,6 +3,7 @@ import SectionHeading from "./SectionHeading";
 import {
   FaReact, FaNodeJs, FaPython, FaGitAlt, FaCode, FaDocker,
   FaBrain, FaDatabase, FaSearch, FaChartBar, FaLayerGroup,
+  FaProjectDiagram, FaRobot,
 } from "react-icons/fa";
 import {
   SiCplusplus, SiJavascript, SiTypescript, SiPhp, SiMysql, SiSqlite,
@@ -26,6 +27,8 @@ export default function Skills() {
     {
       title: "AI / ML",
       skills: [
+        { icon: <FaProjectDiagram color="#00CFFF" />, name: "Multi-Agent Systems" },
+        { icon: <FaRobot color="#00CFFF" />, name: "LLM Agents" },
         { icon: <SiPytorch color="#EE4C2C" />, name: "PyTorch" },
         { icon: <SiTensorflow color="#FF6F00" />, name: "TensorFlow" },
         { icon: <FaChartBar color="#00CFFF" />, name: "XGBoost" },

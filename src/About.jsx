@@ -26,8 +26,10 @@ export default function About() {
           <>
             Right now I&apos;m a graduate researcher in the{" "}
             <span className="text-cyan-400 font-semibold">D-REP Lab</span> under Professor Takanori
-            Fujiwara, looking at how vision-language models read charts. Asking a model what a graph
-            says turns out to be much harder than it sounds.
+            Fujiwara, working on{" "}
+            <span className="text-cyan-400 font-semibold">multi-agent systems</span>. Getting
+            several models to coordinate on one problem turns out to be much harder than it
+            sounds.
           </>,
           <>
             Before that I led a team of three on a gait analysis project, putting IMU sensors on

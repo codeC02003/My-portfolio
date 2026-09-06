@@ -18,7 +18,7 @@ export default function Education() {
       ],
       highlights: [
         "Coursework has leaned toward algorithms and building things that hold up at scale.",
-        "Graduate researcher in the D-REP Lab with Prof. Takanori Fujiwara, on chart understanding with vision-language models.",
+        "Graduate researcher in the D-REP Lab with Prof. Takanori Fujiwara, working on multi-agent systems.",
       ],
     },
     {
